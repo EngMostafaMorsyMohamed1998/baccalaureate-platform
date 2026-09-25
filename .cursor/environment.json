@@ -1,0 +1,11 @@
+{
+  "name": "Baccalaureate Platform (mindsoft-academy)",
+  "install": "npm ci",
+  "start": "bash .cursor/start-postgres.sh",
+  "terminals": [
+    {
+      "name": "next-dev",
+      "command": "npm run dev"
+    }
+  ]
+}
