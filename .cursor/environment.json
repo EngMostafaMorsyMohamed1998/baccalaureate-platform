@@ -1,6 +1,6 @@
 {
   "name": "Baccalaureate Platform (mindsoft-academy)",
-  "install": "npm ci",
+  "install": "bash .cursor/install.sh",
   "start": "bash .cursor/start-postgres.sh",
   "terminals": [
     {
