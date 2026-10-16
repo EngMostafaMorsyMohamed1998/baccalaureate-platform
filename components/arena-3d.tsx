@@ -5,13 +5,14 @@ import { useEffect, useMemo, useRef, useState, type CSSProperties, type PointerE
 import { awardArenaXp } from "@/app/actions/study";
 import { HeroRobot } from "@/components/hero-robot";
 import {
+  ARENA_LEVELS,
   ARENA_LIVES,
-  ARENA_ROUNDS,
   ARENA_XP,
   arenaKmh,
+  arenaLevel,
   arenaScore,
   arenaSeconds,
-  buildArenaRounds,
+  buildArenaLevel,
   type ArenaRound,
 } from "@/lib/arena";
 import { bookletLetters, bookletOptions, bookletPrompt } from "@/lib/booklet-pack";
@@ -19,15 +20,18 @@ import { t } from "@/lib/i18n";
 import type { Locale } from "@/lib/locale";
 import { newAttemptSeed } from "@/lib/shuffle";
 
-type Phase = "ready" | "run" | "won" | "lost";
+type Phase = "ready" | "run" | "levelup" | "won" | "lost";
+const LEVEL_KEY = "msa-arena-level";
 
 export function Arena3D({ locale }: { locale: Locale }) {
   const ar = locale === "ar";
   const [seed, setSeed] = useState(1);
   const [phase, setPhase] = useState<Phase>("ready");
+  const [level, setLevel] = useState(1);
+  const [unlocked, setUnlocked] = useState(1);
   const rounds = useMemo(
-    () => (phase === "ready" ? [] : buildArenaRounds(seed, locale === "ar")),
-    [phase, seed, locale],
+    () => (phase === "ready" ? [] : buildArenaLevel(seed, level, locale === "ar")),
+    [phase, seed, locale, level],
   );
   const [room, setRoom] = useState(0);
   const [lives, setLives] = useState(ARENA_LIVES);
@@ -41,9 +45,33 @@ export function Arena3D({ locale }: { locale: Locale }) {
   const busyRef = useRef(false);
   const stageRef = useRef<HTMLDivElement>(null);
   const current = rounds[room];
-  const limit = arenaSeconds(combo);
-  const kmh = arenaKmh(combo);
+  const stage = arenaLevel(level);
+  const limit = arenaSeconds(combo, level);
+  const kmh = arenaKmh(combo, level);
   const lead = correct - (ARENA_LIVES - lives);
+
+  useEffect(() => {
+    try {
+      const saved = Number(localStorage.getItem(LEVEL_KEY));
+      if (Number.isFinite(saved) && saved >= 1) {
+        const next = Math.min(ARENA_LEVELS.length, Math.floor(saved));
+        setUnlocked(next);
+        setLevel(next);
+      }
+    } catch {
+      // Progress stays on level 1 if storage is blocked.
+    }
+  }, []);
+
+  function remember(nextUnlocked: number) {
+    const value = Math.min(ARENA_LEVELS.length, Math.max(1, nextUnlocked));
+    setUnlocked(value);
+    try {
+      localStorage.setItem(LEVEL_KEY, String(value));
+    } catch {
+      // The run still continues without saved progress.
+    }
+  }
 
   function tilt(event: PointerEvent<HTMLDivElement>) {
     const stage = stageRef.current;
@@ -62,8 +90,9 @@ export function Arena3D({ locale }: { locale: Locale }) {
     stage.style.setProperty("--ry", "-8deg");
   }
 
-  function start() {
+  function start(nextLevel = level) {
     busyRef.current = false;
+    setLevel(nextLevel);
     setSeed(newAttemptSeed());
     setRoom(0);
     setLives(ARENA_LIVES);
@@ -73,7 +102,7 @@ export function Arena3D({ locale }: { locale: Locale }) {
     setBusy(false);
     setFlash(null);
     setPicked(null);
-    setLeft(arenaSeconds(0));
+    setLeft(arenaSeconds(0, nextLevel));
     setPhase("run");
   }
 
@@ -88,7 +117,7 @@ export function Arena3D({ locale }: { locale: Locale }) {
     setBusy(false);
     setFlash(null);
     setPicked(null);
-    setLeft(arenaSeconds(0));
+    setLeft(arenaSeconds(0, level));
   }
 
   function finishWrong(nextLives: number) {
@@ -104,8 +133,13 @@ export function Arena3D({ locale }: { locale: Locale }) {
 
   function finishRight(nextRoom: number) {
     if (nextRoom >= rounds.length) {
-      setPhase("won");
-      void awardArenaXp();
+      if (level >= ARENA_LEVELS.length) {
+        setPhase("won");
+        void awardArenaXp();
+        return;
+      }
+      remember(level + 1);
+      setPhase("levelup");
       return;
     }
     setRoom(nextRoom);
@@ -139,7 +173,7 @@ export function Arena3D({ locale }: { locale: Locale }) {
   useEffect(() => {
     if (phase !== "run" || busy) return;
     const started = Date.now();
-    const total = arenaSeconds(combo);
+    const total = arenaSeconds(combo, level);
     setLeft(total);
     const tick = window.setInterval(() => {
       const remain = Math.max(0, total - (Date.now() - started) / 1000);
@@ -173,7 +207,7 @@ export function Arena3D({ locale }: { locale: Locale }) {
         ref={stageRef}
         className={`arena-stage is-robot ${phase === "run" ? "is-run" : "is-idle"} ${flash === "ok" ? "is-ok" : ""} ${flash === "bad" ? "is-bad" : ""}`}
         style={{
-          ["--heat" as string]: String(Math.min(1, combo / 8)),
+          ["--heat" as string]: String(Math.min(1, (level - 1) / 7 + combo / 10)),
           ["--lead" as string]: String(lead),
           ["--rx" as string]: "6deg",
           ["--ry" as string]: "-8deg",
@@ -204,9 +238,12 @@ export function Arena3D({ locale }: { locale: Locale }) {
         </div>
 
         <div className="arena-hud">
+          <p className="arena-level-badge" dir="ltr">
+            {t(locale, "arenaLevel")} {level}
+          </p>
           <p className="arena-hearts">{"♥".repeat(Math.max(0, lives))}{"♡".repeat(Math.max(0, ARENA_LIVES - lives))}</p>
           <p>
-            {phase === "run" ? room + 1 : 0}/{phase === "ready" ? ARENA_ROUNDS : rounds.length}
+            {phase === "run" ? room + 1 : 0}/{phase === "ready" ? stage.questions : rounds.length || stage.questions}
           </p>
           <p>
             {t(locale, "arenaCombo")} ×{combo}
@@ -233,14 +270,46 @@ export function Arena3D({ locale }: { locale: Locale }) {
             <p className="arena-kicker">MINDSOFT</p>
             <h2>{t(locale, "arenaAsk")}</h2>
             <p>{t(locale, "arenaHint")}</p>
-            <button type="button" className="arena-cta" onClick={start}>
-              {t(locale, "arenaStart")}
+            <div className="arena-levels" role="listbox" aria-label={t(locale, "arenaLevels")}>
+              {ARENA_LEVELS.map((item) => {
+                const locked = item.id > unlocked;
+                return (
+                  <button
+                    key={item.id}
+                    type="button"
+                    disabled={locked}
+                    aria-pressed={item.id === level}
+                    className={`arena-level-dot ${item.id === level ? "is-on" : ""} ${locked ? "is-locked" : ""}`}
+                    onClick={() => setLevel(item.id)}
+                  >
+                    {item.id}
+                  </button>
+                );
+              })}
+            </div>
+            <p className="arena-level-name">{ar ? stage.nameAr : stage.nameEn}</p>
+            <button type="button" className="arena-cta" onClick={() => start(level)}>
+              {t(locale, "arenaLevel")} {level} · {t(locale, "arenaStart")}
             </button>
           </div>
         ) : null}
 
         {phase === "run" && current ? (
           <QuestionBoard locale={locale} round={current} picked={picked} locked={busy} onPick={choose} />
+        ) : null}
+
+        {phase === "levelup" ? (
+          <div className="arena-panel">
+            <p className="arena-kicker">LEVEL UP</p>
+            <h2>{t(locale, "arenaLevelClear")}</h2>
+            <p className="font-serif text-4xl" dir="ltr">
+              {level} → {level + 1}
+            </p>
+            <p>{ar ? arenaLevel(level + 1).nameAr : arenaLevel(level + 1).nameEn}</p>
+            <button type="button" className="arena-cta" onClick={() => start(level + 1)}>
+              {t(locale, "arenaNext")}
+            </button>
+          </div>
         ) : null}
 
         {phase === "won" || phase === "lost" ? (
@@ -253,8 +322,8 @@ export function Arena3D({ locale }: { locale: Locale }) {
             <p>
               {ar ? "صحّحت" : "Solved"} {correct}/{rounds.length} · {kmh} {t(locale, "arenaSpeed")} · {t(locale, "arenaCombo")} ×{combo}
             </p>
-            <button type="button" className="arena-cta" onClick={restart}>
-              {t(locale, "arenaRetry")}
+            <button type="button" className="arena-cta" onClick={() => (phase === "lost" ? start(level) : restart())}>
+              {phase === "lost" ? t(locale, "arenaRetry") : t(locale, "arenaLevels")}
             </button>
           </div>
         ) : null}

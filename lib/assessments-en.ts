@@ -10,12 +10,12 @@ export const ASSESS_EN: Record<string, AssessEnText> = {
   "1-1-p1-class-e1": {
     prompt: "Explain how information technology developed from the 1940s to the 1960s, and state its main use in that period.",
     guide:
-      "From the 1940s to the 1960s electronic computers such as ENIAC appeared, using vacuum tubes. The main use was military and scientific: calculation and data processing in large institutions, not everyday personal use.",
+      "Electronic computers began to appear and used vacuum tubes, such as ENIAC. The main aim in that period was military purposes and complex scientific calculations in large institutions.",
   },
   "1-1-p1-class-e2": {
     prompt: "Explain what Moore’s Law means, and whether it is a fixed physical law. Justify your answer.",
     guide:
-      "Moore’s Law is a 1965 empirical observation: the number of transistors on a chip roughly doubles every two years. It is not a fixed physical law; further shrinking hits a physical limit, leakage currents, and quantum effects.",
+      "Meaning: an empirical observation that the number of transistors on an integrated circuit roughly doubles about every two years, while cost falls. It is not a fixed law of physics. It is a historical trend and forecast set out by Gordon Moore, and further shrinking now faces engineering and physical challenges, such as quantum effects and leakage current.",
   },
   "1-1-p1-class-m1": {
     prompt: "Which option is the main technology or event linked to the 1970s and 1980s?",
@@ -32,13 +32,12 @@ export const ASSESS_EN: Record<string, AssessEnText> = {
   },
   "1-1-p1-home-e1": {
     prompt: "State three social changes that resulted from information technology.",
-    guide:
-      "Three of five shifts: social networks, e-commerce, remote work, online learning, and cashless payment.",
+    guide: "Three social changes: remote work, e-commerce, and social networking services (SNS).",
   },
   "1-1-p1-home-e2": {
     prompt: "What does the term e-commerce mean? Give two examples.",
     guide:
-      "E-commerce is buying and selling goods and services over the internet. Examples: buying a book from an online store, or ordering food through an app.",
+      "Definition: buying and selling goods and services, and carrying out commercial transactions over the Internet. Examples: shopping on Amazon, and booking flights or hotels on websites.",
   },
   "1-1-p1-home-m1": {
     prompt: "Which term names a work pattern in which a person does the job from home or another remote place using the internet?",

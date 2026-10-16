@@ -75,12 +75,12 @@ const PAGE_1_1: TextbookPage = {
   pointsAr: [
     "خمس تحولات اجتماعية: شبكات التواصل، التجارة الإلكترونية، العمل عن بُعد، التعلّم عبر الإنترنت، والدفع بلا نقد.",
     "القيادة الذاتية تحتاج حوسبة طرفية لأن تأخير جزء من الثانية خطر.",
-    "قانون مور: عدد الترانزستورات يتضاعف تقريبًا كل سنتين، واقترب من حد فيزيائي؛ لذلك تظهر المعالجة المتوازية والبت الكمومي.",
+    "قانون مور: عدد الترانزستورات يتضاعف تقريبًا كل سنتين، واقترب من حد فيزيائي؛ لذلك يتحسن أداء الحواسيب العادية أيضًا بالمعالجة المتوازية. الحوسبة الكمومية نهج مختلف لمسائل محددة.",
   ],
   pointsEn: [
     "Five social changes: SNS, e-commerce, remote work, online learning, and cashless payment.",
     "Autonomous driving needs edge computing because a 0.1 second delay can cause an accident.",
-    "Moore's Law: transistors roughly double every two years and are near a physical limit, so parallel cores and qubits appear.",
+    "Moore's Law: transistors roughly double every two years and are near a physical limit, so ordinary computers also gain speed from parallel processing. Quantum computing is a different approach for specific problems.",
   ],
   explains: explainsForLesson("1-1"),
   takeawayAr: "التقنية لا تقفز مرة واحدة؛ كل مرحلة تغيّر كيف نتواصل ونعمل وندفع.",
@@ -88,24 +88,24 @@ const PAGE_1_1: TextbookPage = {
   rows: [
     {
       cellsAr: [
-        "الأربعينيات–الخمسينيات",
-        "ظهور الحاسوب الإلكتروني، ومنه إينياك، باستخدام الأنابيب المفرغة.",
+        "الأربعينيات–الستينيات",
+        "حواسيب إلكترونية ضخمة. بدايتها مثل إينياك بالأنابيب المفرغة.",
         "استخدام أساسًا للأغراض العسكرية والحسابات العلمية.",
       ],
       cellsEn: [
-        "1940s–1950s",
-        "Electronic computers appear, including ENIAC, using vacuum tubes.",
+        "1940s–1960s",
+        "Huge electronic computers. Early machines such as ENIAC used vacuum tubes.",
         "Used mainly for military and scientific calculation.",
       ],
     },
     {
       cellsAr: [
-        "الثمانينيات",
+        "السبعينيات–الثمانينيات",
         "انتشار الحاسوب الشخصي.",
         "بداية استخدام الأفراد والمؤسسات للحاسوب في العمل والتعليم بدل الطرق التقليدية.",
       ],
       cellsEn: [
-        "1980s",
+        "1970s–1980s",
         "The personal computer (PC) spreads.",
         "People and offices start using a computer for daily work and learning.",
       ],

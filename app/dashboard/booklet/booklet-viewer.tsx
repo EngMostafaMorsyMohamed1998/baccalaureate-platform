@@ -24,16 +24,19 @@ export function BookletViewer({
   downloadLabel,
   downloadingLabel,
   groups,
+  initialLessonId,
 }: {
   locale: Locale;
   printLabel: string;
   downloadLabel: string;
   downloadingLabel: string;
   groups: BookletGroup[];
+  initialLessonId?: string;
 }) {
-  const [groupId, setGroupId] = useState(groups[0]?.id ?? "");
+  const initialGroup = groups.find((item) => item.lessons.some((lesson) => lesson.id === initialLessonId));
+  const [groupId, setGroupId] = useState(initialGroup?.id ?? groups[0]?.id ?? "");
   const group = useMemo(() => groups.find((item) => item.id === groupId) ?? groups[0], [groups, groupId]);
-  const [lessonId, setLessonId] = useState(group?.lessons[0]?.id ?? "");
+  const [lessonId, setLessonId] = useState(initialLessonId || group?.lessons[0]?.id || "");
   const lessons = group?.lessons ?? [];
   const activeId = lessons.some((item) => item.id === lessonId) ? lessonId : (lessons[0]?.id ?? "");
   const ar = locale === "ar";

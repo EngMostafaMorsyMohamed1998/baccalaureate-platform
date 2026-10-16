@@ -16,9 +16,12 @@ import {
   bookletLessonPack,
   bookletLetters,
   bookletOptions,
+  buildBookletDocument,
   bookletPrompt,
   faizUnitId,
   homeworkChapterId,
+  type BookletAnswer,
+  type BookletEssay,
   type BookletFaizPack,
   type BookletHomeworkPack,
   type BookletLessonPack,
@@ -26,6 +29,7 @@ import {
   type BookletScope,
 } from "@/lib/booklet-pack";
 import { getChapter, getLesson } from "@/lib/curriculum";
+import { LESSON_NOTES } from "@/lib/lessons";
 import type { Locale } from "@/lib/locale";
 import { mindMapForFaiz, type MindNode } from "@/lib/mind-maps";
 import { existsSync } from "fs";
@@ -1671,6 +1675,16 @@ function coverCopy(locale: Locale, scope: BookletScope) {
       color: chapter?.color ?? "#0c2d6b",
     };
   }
+
+  if (scope === "part-1" || scope === "part-2") {
+    const part = scope === "part-1" ? 1 : 2;
+    return {
+      kicker: ar ? `الجزء ${part === 1 ? "الأول" : "الثاني"}` : `Part ${part}`,
+      title: ar ? `ملزمة الجزء ${part === 1 ? "الأول" : "الثاني"} الشاملة` : `Part ${part} Comprehensive Booklet`,
+      color: "#0c2d6b",
+    };
+  }
+
   const pack = bookletLessonPack(scope);
   if (!pack) {
     return { kicker: ar ? `الفصل ${scope}` : `Chapter ${scope}`, title: "", color: "#0c2d6b" };
@@ -1772,9 +1786,9 @@ function pushHomeworkBlocks(blocks: Block[], pack: BookletHomeworkPack, locale: 
   const ar = locale === "ar";
   blocks.push({ kind: "banner", text: ar ? pack.titleAr : pack.titleEn, color: "#92400e" });
   pushQuestions(blocks, locale, pack.mcq);
-  pack.essays.forEach((essay, index) => {
-    blocks.push({ kind: "essay", n: index + 1, prompt: bookletPrompt(locale, essay.promptAr, essay.promptEn) });
-  });
+      pack.essays.forEach((essay: BookletEssay, index: number) => {
+        blocks.push({ kind: "essay", n: index + 1, prompt: bookletPrompt(locale, essay.promptAr, essay.promptEn) });
+      });
 }
 
 function buildBlocks(locale: Locale, scope: BookletScope): Block[] {
@@ -1858,6 +1872,79 @@ function buildBlocks(locale: Locale, scope: BookletScope): Block[] {
     pushHomeworkBlocks(blocks, pack, locale);
     pushAnswerKey(blocks, locale, [{ title: ar ? pack.titleAr : pack.titleEn, answers: pack.answers }]);
     pushEssayGuides(blocks, locale, ar ? "مقالي الواجب" : "Homework essays", pack.essays);
+    return blocks;
+  }
+
+  if (scope === "part-1" || scope === "part-2") {
+    const part = scope === "part-1" ? 1 : 2;
+    const document = buildBookletDocument();
+    const packs = document.parts.find(p => p.part === part);
+    if (!packs) return blocks;
+
+    blocks.push({ 
+      kind: "text", 
+      text: ar ? (part === 1 ? "ملزمة الجزء الأول" : "ملزمة الجزء الثاني") : (part === 1 ? "Part 1 Booklet" : "Part 2 Booklet"), 
+      size: 16, 
+      gap: 16 
+    });
+
+    const allAnswers: { title: string; answers: BookletAnswer[] }[] = [];
+    const allEssays: BookletEssay[] = [];
+
+    for (const pack of packs.chapters) {
+      blocks.push({
+        kind: "banner",
+        text: ar ? `الفصل ${pack.chapter.id} — ${pack.chapter.titleAr}` : `Chapter ${pack.chapter.id} — ${pack.chapter.titleEn}`,
+        color: pack.chapter.color,
+      });
+      
+      const lessons = LESSON_NOTES.filter(n => n.chapterId === pack.chapter.id);
+      for (const note of lessons) {
+        const lessonPack = bookletLessonPack(note.id);
+        if (lessonPack) {
+          pushLesson(blocks, lessonPack, locale);
+          allAnswers.push({
+            title: ar ? `اختيار من متعدد — الدرس ${lessonPack.lessonId}` : `Multiple choice — lesson ${lessonPack.lessonId}`,
+            answers: lessonPack.practice.map((row) => ({
+              id: row.id,
+              index: row.correctIndex,
+              promptAr: row.promptAr,
+              promptEn: row.promptEn,
+              choiceAr: row.optionsAr[row.correctIndex] ?? "",
+              choiceEn: row.optionsEn[row.correctIndex] ?? "",
+            })),
+          });
+          allAnswers.push({
+            title: ar ? `صح وغلط — الدرس ${lessonPack.lessonId}` : `True or false — lesson ${lessonPack.lessonId}`,
+            answers: lessonPack.tf.map((row) => ({
+              id: row.id,
+              index: row.correctIndex,
+              promptAr: row.promptAr,
+              promptEn: row.promptEn,
+              choiceAr: row.optionsAr[row.correctIndex] ?? "",
+              choiceEn: row.optionsEn[row.correctIndex] ?? "",
+            })),
+          });
+          allEssays.push(...lessonPack.essays);
+        }
+      }
+
+      blocks.push({ kind: "section", text: ar ? `تدريبات الفصل ${pack.chapter.id}` : `Chapter ${pack.chapter.id} Practice` });
+      pushQuestions(blocks, locale, pack.practice);
+      pack.essays.forEach((essay: BookletEssay, index: number) => {
+        blocks.push({ kind: "essay", n: index + 1, prompt: bookletPrompt(locale, essay.promptAr, essay.promptEn) });
+      });
+      
+      allAnswers.push({
+        title: ar ? `تدريبات الفصل ${pack.chapter.id}` : `Chapter ${pack.chapter.id} Practice`,
+        answers: pack.answers
+      });
+      allEssays.push(...pack.essays);
+    }
+
+    blocks.push({ kind: "break" });
+    pushAnswerKey(blocks, locale, allAnswers);
+    pushEssayGuides(blocks, locale, ar ? "إجابات الأسئلة المقالية" : "Essay Guides", allEssays);
     return blocks;
   }
 
@@ -2284,6 +2371,9 @@ export async function buildBookletPdf(locale: Locale, scope: BookletScope): Prom
 }
 
 export function bookletFileName(locale: Locale, scope: BookletScope): string {
+  if (scope === "part-1" || scope === "part-2") {
+    return locale === "ar" ? `MindSoft-ملزمة-الجزء-${scope === "part-1" ? "1" : "2"}-2027.pdf` : `MindSoft-Part-${scope === "part-1" ? "1" : "2"}-2027.pdf`;
+  }
   const assessId = assessLessonId(scope);
   if (assessId) {
     return locale === "ar" ? `ملزمة-أداءات-${assessId}-MindSoft-2027.pdf` : `MindSoft-assessments-${assessId}-2027.pdf`;

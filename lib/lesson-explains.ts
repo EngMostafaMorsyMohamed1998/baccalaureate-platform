@@ -12,9 +12,11 @@ const EXPLAINS: Record<string, LessonExplain[]> = {
     {
       termAr: "قانون مور",
       termEn: "Moore's Law",
-      bodyAr: "ملاحظة من 1965: عدد الترانزستورات على الشريحة يتضاعف تقريبًا كل سنتين. ليست قانونًا فيزيائيًا، واقتربت من حد فيزيائي.",
-      bodyEn: "A 1965 observation: transistors on a chip roughly double every two years. It is not a physics law, and it is near a physical limit.",
-      exampleAr: "",
+      bodyAr:
+        "الترانزستور مكوّن إلكتروني صغير جدًا داخل المعالج، ويعمل مفتاحًا يتحكم في الإشارات الكهربائية. كلما زاد عدد الترانزستورات داخل المعالج أمكن تنفيذ عمليات أكثر بسرعة وكفاءة أكبر. فكرة قانون مور أن عدد الترانزستورات على الشريحة يتضاعف تقريبًا كل عامين. مثال افتراضي: 1 مليار في 2020، ثم 2 مليار في 2022، ثم 4 مليارات في 2024، ثم 8 مليارات في 2026. ليس قانونًا فيزيائيًا ثابتًا مثل الحركة أو الجاذبية، بل ملاحظة واتجاه تاريخي في صناعة الإلكترونيات.",
+      bodyEn:
+        "A transistor is a tiny switch inside the processor. Moore's Law observes that the number of transistors on a chip roughly doubles about every two years. A hypothetical run is 1, 2, 4, then 8 billion from 2020 to 2026. It is a historical trend, not a fixed law of physics.",
+      exampleAr: "من 2020 إلى 2026 في المثال الافتراضي: 1 ثم 2 ثم 4 ثم 8 مليارات ترانزستور.",
       exampleEn: "",
     },
     {
@@ -28,8 +30,8 @@ const EXPLAINS: Record<string, LessonExplain[]> = {
     {
       termAr: "الحوسبة الطرفية",
       termEn: "Edge computing",
-      bodyAr: "معالجة البيانات على الجهاز نفسه بدل إرسالها للسحابة. لازمة لما يكون التأخير خطرًا.",
-      bodyEn: "Process data on the device itself instead of sending it to the cloud. Needed when delay is dangerous.",
+      bodyAr: "معالجة البيانات قرب مصدرها، كالجهاز نفسه، بدل إرسالها كلها إلى السحابة. لازمة لما يكون التأخير خطرًا.",
+      bodyEn: "Process data near its source, such as on the device, instead of sending it all to the cloud. Needed when delay is dangerous.",
       exampleAr: "",
       exampleEn: "",
     },
@@ -73,50 +75,66 @@ const EXPLAINS: Record<string, LessonExplain[]> = {
       termAr: "الذكاء الاصطناعي",
       termEn: "Artificial Intelligence (AI)",
       bodyAr:
-        "الذكاء الاصطناعي هو التقنية التي تمكّن الحواسيب من أداء مهام تحتاج عادةً إلى ذكاء بشري. يتعلم من أمثلة، يستدل، ويحكم. مش شرط يكون واعي أو يفهم زي المدرس. هو برامج وأجهزة تتدرّب أو تُضبط عشان تخرج قرارًا أو توقعًا. الذكاء الاصطناعي هو المظلة الكبيرة اللي تحتها التعلم الآلي والتعلم العميق والذكاء التوليدي.",
+        "الذكاء الاصطناعي هو التقنية التي تمكّن الحاسوب من أداء مهام تحتاج عادة إلى ذكاء بشري: التعلم من أمثلة، والاستدلال، والحكم. ليس شرطًا أن يكون النظام واعيًا أو أن يفهم كما يفهم الإنسان. هو المجال الأوسع، وداخله التعلم الآلي، وداخله التعلم العميق، وعليه يُبنى أغلب التوليد الحديث.",
       bodyEn:
         "Artificial Intelligence (AI) is the technology that enables computers to perform tasks that normally require human intelligence. It can learn from examples, reason, and judge. It does not have to be conscious or understand like a teacher. These are programs trained or tuned to output a decision or a prediction. AI is the wide umbrella; machine learning, deep learning, and generative AI sit under it.",
-      exampleAr: "برنامج يفرّق صورة قطة عن كلب بعد ما شاف آلاف الصور.",
+      exampleAr:
+        "هاتف يفتح عندما يتعرّف على وجه صاحبه.\nتطبيق ترجمة يحوّل جملة من الإنجليزية إلى العربية فورًا.\nمساعد صوتي يضبط المنبه عندما يسمع «الساعة السابعة».",
       exampleEn: "A program that tells a cat from a dog after seeing thousands of pictures.",
     },
     {
       termAr: "التعلم الآلي",
       termEn: "Machine learning",
       bodyAr:
-        "التعلم الآلي فرع من الذكاء الاصطناعي. بدل ما المبرمج يكتب قاعدة لكل حالة، النموذج يتعلم أنماطًا من بيانات كثيرة ويتوقع أو يصنّف حالات جديدة. فلتر الرسائل المزعجة وتوصية فيديو على المنصة أمثلة شائعة. جودة النموذج مربوطة بجودة البيانات: لو البيانات ناقصة أو منحازة، الحكم يطلع غلط وهو واثق.",
+        "التعلم الآلي فرع من الذكاء الاصطناعي. بدل كتابة قاعدة لكل حالة، يتعلم النموذج الأنماط من بيانات كثيرة ثم يتوقع أو يصنّف حالات جديدة. فرز الرسائل المزعجة وتوصية الفيديو مثالان، والغرض مختلف في كل مهمة. جودة الحكم تتبع جودة البيانات: البيانات الناقصة أو المنحازة تعطي حكمًا واثقًا وهو غير دقيق.",
       bodyEn:
         "Machine learning is a branch of AI. Instead of a programmer writing a rule for every case, the model learns patterns from lots of data and then predicts or classifies new cases. A spam filter and a video recommender are everyday examples. Model quality follows data quality: incomplete or biased data produces a confident wrong judgement.",
-      exampleAr: "البريد يحط رسالة في «مزعج» لأن نفس الكلمات ظهرت قبل كده في رسائل احتيال.",
+      exampleAr:
+        "البريد ينقل الرسالة إلى «مزعج» لأن كلماتها تشبه رسائل احتيال سابقة.\nالمتجر يقترح منتجًا مشابهًا لما اشتراه الطالب من قبل.\nمنصة الدروس تقترح فيديو الجبر بعد مشاهدة فيديو المعادلات.",
       exampleEn: "Mail moves a message to spam because the same words showed up in earlier fraud.",
     },
     {
       termAr: "التعلم العميق",
       termEn: "Deep learning",
       bodyAr:
-        "التعلم العميق تعلم آلي متقدم يستخدم شبكات عصبية بطبقات كتير وبيانات ضخمة. الطبقات بتستخرج ملامح لوحدها: في الصورة تبدأ بالحواف بعدين الأشكال بعدين الوجه. مناسب للصوت والصورة واللغة لما يكون عندك بيانات حساب كافية. مش لازم يكون أول اختيار لمسألة صغيرة بجدول درجات بسيط.",
+        "التعلم العميق أسلوب من التعلم الآلي يستخدم شبكات عصبية متعددة الطبقات وبيانات كبيرة. الطبقات تستخرج الملامح بنفسها: في الصورة تبدأ بالحواف، ثم الأشكال، ثم الوجه. يناسب الصوت والصورة واللغة عندما تتوافر بيانات كافية. ليس الخيار الأول لمسألة صغيرة مثل جدول درجات بسيط.",
       bodyEn:
         "Deep learning is advanced machine learning that uses neural networks with many layers and huge data. Layers extract features on their own: in a photo they start with edges, then shapes, then a face. It fits speech, images, and language when you have enough data and compute. It is not the first choice for a small marks table.",
-      exampleAr: "تطبيق يحوّل كلام المدرس في الحصة إلى نص مكتوب.",
+      exampleAr:
+        "تطبيق يحوّل كلام المعلم في الحصة إلى نص مكتوب.\nكاميرا الهاتف تتعرّف على الوجه داخل الصورة.\nتطبيق يفهم الكلام المنطوق ويفصله عن ضوضاء المكان.",
       exampleEn: "An app that turns the teacher's speech in class into written text.",
+    },
+    {
+      termAr: "الشبكة العصبية",
+      termEn: "Neural network",
+      bodyAr:
+        "الشبكة العصبية نموذج مبسّط مستوحى من ترابط العصبونات. تتكون من طبقات، وتتغير أوزانها أثناء التدريب حتى يقل الخطأ. في الصورة تستخرج الطبقات الأولى الحواف، ثم الأشكال، ثم الشيء كاملًا.",
+      bodyEn:
+        "A neural network is a simplified model inspired by connected neurons. It has layers, and its weights change during training so the error falls. In a photo the first layers pick out edges, then shapes, then the whole object.",
+      exampleAr:
+        "تعرّف الوجه يبدأ بالحواف، ثم العين والأنف، ثم الوجه كاملًا.\nكل محاولة تدريب تصحّح الوزن، مثل مراجعة الطالب لإجابته حتى يثبت النمط.",
+      exampleEn: "Face recognition starts with edges, then eyes and nose, then the whole face.",
     },
     {
       termAr: "الذكاء التوليدي",
       termEn: "Generative AI",
       bodyAr:
-        "الذكاء التوليدي ينتج نصًا أو صورة أو صوتًا جديدًا بعد تدريب عميق على أمثلة كثيرة. مش بيسحب جملة محفوظة وبس؛ بيكمّل الأرجح كلمة بعد كلمة. عشان كده ممكن يهلوس: الكلام فصيح وهو غلط. استخدمه عشان تفهم الفكرة، بعدين اكتب إجابتك أنت وراجع المصدر.",
+        "الذكاء التوليدي ينشئ نصًا أو صورة أو صوتًا جديدًا بعد تدريب عميق على أمثلة كثيرة. لا يكتفي باسترجاع جملة محفوظة، بل يكمّل الكلمة الأرجح. لذلك قد يهلوس: الكلام فصيح والمعلومة غير صحيحة. يُستخدم لفهم الفكرة، ثم تُكتب الإجابة بأسلوب الطالب بعد مراجعة المصدر.",
       bodyEn:
         "Generative AI creates new text, images, or audio after deep training on many examples. It does not only fetch a stored sentence; it completes the next likely word. That is why it can hallucinate: fluent language that is wrong. Use it to understand an idea, then write your own answer and check the source.",
-      exampleAr: "طالب طلب صورة «معمل حاسوب في الستينيات» فطلع رسم جديد، مش صورة أرشيف جاهزة.",
+      exampleAr:
+        "طالب يكتب «معمل حاسوب في الستينيات» فيخرج رسم جديد، لا صورة أرشيف.\nأداة تكتب مسودة عن قانون مور، والطالب يراجعها من الكتاب قبل التسليم.\nتطبيق يصنع صورة ملصق للحصة من جملة وصف واحدة.",
       exampleEn: "A student asks for a 1960s computer lab picture and gets a new drawing, not a ready archive photo.",
     },
     {
       termAr: "الهلوسة",
       termEn: "Hallucination",
       bodyAr:
-        "هلوسة النموذج معناها إنه يطلع جملة تبدو صحيحة ومتماسكة، وهي خطأ أو مالهاش سند. ده مش كذب بشري؛ النموذج بيحسب أرجح تكملة لغوية. راجع المعنى من الكتاب قبل ما تعتمد الجملة.",
+        "هلوسة النموذج جملة تبدو صحيحة ومتماسكة وهي خطأ أو بلا سند. ليست كذبًا بشريًا؛ النموذج يحسب التكملة اللغوية الأرجح. قبل اعتماد الجملة في تقرير مدرسي يُراجع المعنى من الكتاب.",
       bodyEn:
         "A hallucination is fluent, well-shaped text that is false or ungrounded. It is not a human lie; the model scores the next likely words. Check the meaning in the book before you trust the sentence.",
-      exampleAr: "النموذج اخترع اسم عالم وقانون وهمي في إجابة تبدو أكاديمية.",
+      exampleAr:
+        "الإجابة تذكر اسم عالم وقانونًا غير موجودين بصيغة تبدو علمية.\nالملخص يذكر رقمًا أو تاريخًا غير وارد في الدرس.\nقبل تسليم الواجب تُراجع الجملة من الكتاب، ولا يُعتمد النص الواثق وحده.",
       exampleEn: "The model invents a scientist and a fake law in an answer that sounds academic.",
     },
   ],
@@ -125,7 +143,7 @@ const EXPLAINS: Record<string, LessonExplain[]> = {
       termAr: "الذكاء الضيق",
       termEn: "Narrow AI",
       bodyAr:
-        "الذكاء الضيق نظام يتقن مهمة واحدة أو مجموعة مهام قريبة: ترجمة، توصية، فلترة بريد. ده شكل معظم أنظمة اليوم، حتى لو البرنامج مشهور وقوي. الذكاء العام اللي يفهم أي مهمة زي الإنسان لسه مش شكل الأنظمة المنتشرة. الغلط إنك تعتبر شات يكتب كويس إنه بقى ذكاء عام.",
+        "الذكاء الضيق نظام يتقن مهمة واحدة أو مجموعة مهام قريبة: ترجمة، توصية، فلترة بريد. وهذا شكل معظم الأنظمة اليوم، حتى لو كان البرنامج مشهورًا وقويًا. أما الذكاء العام الذي يفهم أي مهمة كما يفهمها الإنسان فلم يصبح بعد شكل الأنظمة المنتشرة. والخطأ الشائع أن تعد محادثة تكتب بإتقان دليلًا على ذكاء عام.",
       bodyEn:
         "Narrow AI is expert at one task or a tight family of tasks: translation, recommendation, spam filtering. That is the form of most systems today, even famous strong ones. General AI (AGI) that handles any task like a person is not the form of systems in daily use. A fluent chat is not proof of general intelligence.",
       exampleAr: "فلتر البريد ممتاز في الرسائل المزعجة، ويفشل لو سألته يرتب جدول الحصص.",
@@ -135,7 +153,7 @@ const EXPLAINS: Record<string, LessonExplain[]> = {
       termAr: "التحيز",
       termEn: "Bias",
       bodyAr:
-        "التحيز أخطاء متكررة لأن بيانات التدريب ناقصة أو غير عادلة. النموذج يكرّر اللي شافه أكثر. لو الصور اللي اتدرّب عليها من فئة واحدة، الحكم على الباقي يضعف. الحل مش إننا نثق في الرقم؛ الحل نراجع مين اتمثّل في البيانات ومين اتغيب.",
+        "التحيز أخطاء متكررة لأن بيانات التدريب ناقصة أو غير عادلة. والنموذج يكرر ما رآه أكثر. فإذا كانت صور التدريب من فئة واحدة ضعف الحكم على بقية الفئات. والحل ليس الثقة في الرقم، بل مراجعة من مُثِّل في البيانات ومن غاب عنها.",
       bodyEn:
         "Bias is repeated error because training data is incomplete or unfair. The model repeats what it saw most. If the photos came from one group, judgement of the rest gets weaker. The fix is not to trust the score; it is to ask who was represented and who was missing.",
       exampleAr: "نظام قبول يتدرّب على ملفات قديمة فيها ذكور أكثر، فيقلل فرص البنات من غير سبب علمي.",
@@ -145,7 +163,7 @@ const EXPLAINS: Record<string, LessonExplain[]> = {
       termAr: "نظام توصية",
       termEn: "Recommender",
       bodyAr:
-        "نظام التوصية يقترح فيديو أو منتج أو درس من أنماط سابقة: إيه اللي شفته، وإيه اللي شاف زيّه ناس تانيين. مفيد عشان يوفّر وقت. خطره إنه يحبسك في دائرة ضيقة وما يورّيش رأي مختلف، ولو البيانات منحازة الاقتراح يتكرر غلط.",
+        "نظام التوصية يقترح فيديو أو منتجًا أو درسًا من أنماط سابقة: ما شاهدته أنت، وما شاهده غيرك ممن لهم اهتمام مشابه. وهو مفيد لأنه يوفر الوقت. وخطره أنه قد يحبسك في دائرة ضيقة فلا يعرض رأيًا مختلفًا، وإذا كانت البيانات منحازة تكرر الاقتراح الخاطئ.",
       bodyEn:
         "A recommender suggests a video, a product, or a lesson from past patterns: what you watched and what similar people watched. It saves time. The risk is a narrow loop that hides other views, and biased data repeats a wrong suggestion.",
       exampleAr: "منصة الدروس تقترح فيديو الجبر بعد ما خلصت فيديو المعادلات.",
@@ -155,7 +173,7 @@ const EXPLAINS: Record<string, LessonExplain[]> = {
       termAr: "صيانة تنبؤية",
       termEn: "Predictive maintenance",
       bodyAr:
-        "الصيانة التنبؤية تستخدم بيانات الحساسات عشان تتوقع العطل قبل ما يحصل. المصنع يغيّر قطعة في وقت مناسب بدل ما يستنى المكنة تقف في نص اليوم. ده استخدام صناعي واضح للذكاء الضيق: مهمة واحدة، بيانات متكررة، وقرار يساعد المهندس مش يستبدله.",
+        "الصيانة التنبؤية تستخدم بيانات المستشعرات لتوقع العطل قبل وقوعه. فيغير المصنع القطعة في وقت مناسب بدل انتظار توقف الآلة في منتصف اليوم. وهذا استخدام صناعي واضح للذكاء الضيق: مهمة واحدة، وبيانات متكررة، وقرار يساعد المهندس ولا يحل محله.",
       bodyEn:
         "Predictive maintenance uses sensor data to forecast a fault before it happens. A factory replaces a part at a sensible time instead of waiting for the machine to stop at midday. It is a clear industrial use of narrow AI: one job, repeated data, and a decision that helps the engineer rather than replacing them.",
       exampleAr: "حساس حرارة على طابعة المعمل ينبّه قبل ما الموتور يحرق.",
@@ -167,17 +185,17 @@ const EXPLAINS: Record<string, LessonExplain[]> = {
       termAr: "الخصوصية",
       termEn: "Privacy",
       bodyAr:
-        "الخصوصية حق الشخص يسيطر على بياناته: مين يجمعها، ليه، وإلى متى. الدرجة ورقم التليفون وصورة البطاقة مش مادة تدريب لنموذج عام. حتى لو الخدمة «مجانية»، أنت بتدفع بالبيانات. القاعدة: متشاركش بيانات زميل أو أسرة مع نموذج على الإنترنت.",
+        "الخصوصية حق الشخص في التحكم في بياناته: من يجمعها، ولماذا، وإلى متى. فالدرجة ورقم الهاتف وصورة البطاقة ليست مادة تدريب لنموذج عام. وحتى لو كانت الخدمة «مجانية» فأنت تدفع ثمنها بالبيانات. والقاعدة: لا تشارك بيانات زميل أو أسرة مع نموذج على الإنترنت.",
       bodyEn:
         "Privacy is a person's right to control their data: who collects it, why, and for how long. Marks, a phone number, and an ID photo are not training material for a public model. Even a “free” service is paid for with data. Rule: never share a classmate's or family's data with an online model.",
-      exampleAr: "طالب لزق كشف درجات الفصل في شات عام عشان «يلخّص النتيجة» — ده انتهاك خصوصية.",
+      exampleAr: "طالب نشر كشف درجات الفصل في محادثة عامة ليطلب «تلخيص النتيجة»، وهذا انتهاك للخصوصية.",
       exampleEn: "A student pastes the class mark sheet into a public chat to “summarise results” — that is a privacy breach.",
     },
     {
       termAr: "الشفافية",
       termEn: "Transparency",
       bodyAr:
-        "الشفافية تعني إننا نقدر نفهم ليه النظام اتخذ قرارًا، أو على الأقل نعرف على أي بيانات اعتمد. الصندوق الأسود مشكلة لما القرار يمس درجة أو قبول أو صحة. اسأل: ينفع نراجع القرار؟ فيه سجل؟ ولا الجملة «الكمبيوتر قال كده» بس؟",
+        "الشفافية تعني أن نفهم لماذا اتخذ النظام قرارًا، أو أن نعرف على الأقل أي بيانات اعتمد عليها. والصندوق الأسود مشكلة حين يمس القرار درجة أو قبولًا أو صحة. اسأل: هل يمكن مراجعة القرار؟ وهل هناك سجل؟ أم لا توجد إلا عبارة «الحاسوب قرر ذلك»؟",
       bodyEn:
         "Transparency means we can understand why a system decided, or at least which data it used. A black box is a problem when the decision touches a mark, an admission, or health. Ask: can we review the decision? Is there a log? Or only the sentence “the computer said so”?",
       exampleAr: "نظام غياب يخصم درجة من غير ما يوري إن الكاميرا اتعمت في الطابور.",
@@ -187,7 +205,7 @@ const EXPLAINS: Record<string, LessonExplain[]> = {
       termAr: "المساءلة",
       termEn: "Accountability",
       bodyAr:
-        "المساءلة تعني إن فيه مسؤول بشري عن أثر القرار. النموذج أداة. لو اقتراح العلاج أو درجة المشروع ظلمت طالب، المدرسة أو الطبيب أو المعلم هم اللي يردّوا، مش «الذكاء الاصطناعي». من غير مساءلة، الغلط يتكرر ومفيش حد يصلّح.",
+        "المساءلة تعني وجود مسؤول بشري عن أثر القرار. فالنموذج أداة. وإذا ظلم اقتراح العلاج أو درجة المشروع طالبًا فالمدرسة أو الطبيب أو المعلم هم من يُسألون، لا «الذكاء الاصطناعي». وبغير مساءلة يتكرر الخطأ ولا يصلحه أحد.",
       bodyEn:
         "Accountability means a human remains responsible for the effect of a decision. The model is a tool. If a treatment hint or a project mark harms a student, the school, the doctor, or the teacher must answer — not “the AI”. Without accountability, the error repeats and nobody repairs it.",
       exampleAr: "المعلم يراجع درجة صححها برنامج قبل ما تتسجل في الكشف.",
@@ -197,7 +215,7 @@ const EXPLAINS: Record<string, LessonExplain[]> = {
       termAr: "التزييف العميق",
       termEn: "Deepfake",
       bodyAr:
-        "التزييف العميق صوت أو صورة أو فيديو مصنوع يبان حقيقي. ممكن يتشهّر بحد أو يزوّر اعتراف. التعامل الصح: متصدّقش فيديو حساس من غير مصدر، ومتنشرش شائعة. القدرة التقنية هنا مش إذن أخلاقي إنك تركّب وش زميل على مشهد.",
+        "التزييف العميق صوت أو صورة أو فيديو مصنوع يبدو حقيقيًا. وقد يُستخدم للتشهير بشخص أو تزوير اعتراف. والتعامل الصحيح: لا تصدق مقطعًا حساسًا بلا مصدر، ولا تنشر شائعة. والقدرة التقنية هنا ليست إذنًا أخلاقيًا بتركيب وجه زميل على مشهد.",
       bodyEn:
         "A deepfake is a fabricated voice, image, or video that looks real. It can smear someone or fake a confession. The right move: do not trust a sensitive clip without a source, and do not spread a rumour. Technical power is not moral permission to paste a classmate's face onto a scene.",
       exampleAr: "فيديو يظهر المدير بيقول كلام ميتقالش؛ تتأكد من الصفحة الرسمية قبل ما تشارك.",
@@ -209,10 +227,10 @@ const EXPLAINS: Record<string, LessonExplain[]> = {
       termAr: "التشفير",
       termEn: "Encryption",
       bodyAr:
-        "التشفير يحوّل النص المقروء إلى صورة لا تُفهم إلا بالمفتاح الصحيح. لو الرسالة اتسرقت في الطريق، السارق يشوف رموز مش المعنى. التشفير يحمي السرية وهو في الطريق وعلى الجهاز. من غير مفتاح، فك التشفير يبقى صعب جدًا بالطرق العادية.",
+        "التشفير يحوّل النص المقروء إلى صورة لا تُفهم إلا بالمفتاح الصحيح. فإذا سُرقت الرسالة في الطريق رأى السارق رموزًا لا المعنى. والتشفير يحمي السرية أثناء النقل وعلى الجهاز. وبغير المفتاح يصعب فك التشفير جدًا بالطرق العادية.",
       bodyEn:
         "Encryption turns readable data into a form that only the right key can open. If the message is stolen on the way, the thief sees symbols, not the meaning. Encryption protects secrecy in transit and at rest. Without the key, ordinary cracking is impractical.",
-      exampleAr: "رسالة درجات على واتساب بتتشفر في الطريق؛ اللي على الشبكة العامة مش بيقرأ الكشف.",
+      exampleAr: "رسالة الدرجات تُشفَّر أثناء النقل، فمن يتنصت على الشبكة العامة لا يقرأ الكشف.",
       exampleEn: "A marks message is encrypted in transit; someone on the public network cannot read the sheet.",
     },
     {
@@ -222,14 +240,14 @@ const EXPLAINS: Record<string, LessonExplain[]> = {
         "التشفير المتماثل يستخدم نفس المفتاح للتشفير وفك التشفير. سريع ومناسب لملفات كبيرة. المشكلة: لازم الطرفين يتشاركوا المفتاح في سرية. لو المفتاح اتسرب، كل الرسائل القديمة والجديدة تنفضح.",
       bodyEn:
         "Symmetric encryption uses the same key to lock and unlock. It is fast and fits large files. The problem: both sides must share that key in secret. If the key leaks, old and new messages open.",
-      exampleAr: "مجلد المعمل يتقفل بكلمة مرور واحدة يعرفها أمين المعمل والمعلم بس.",
+      exampleAr: "مجلد المعمل يُقفل بكلمة مرور واحدة يعرفها أمين المعمل والمعلم فقط.",
       exampleEn: "The lab folder is locked with one password that only the lab keeper and the teacher know.",
     },
     {
       termAr: "التشفير غير المتماثل",
       termEn: "Asymmetric",
       bodyAr:
-        "التشفير غير المتماثل يستخدم زوج مفاتيح. للسرية: العام يتشفر به أي حد، والخاص يفك به صاحبه فقط. للتوقيع الرقمي العكس: الخاص يوقّع والعام يتحقق. أبطأ من المتماثل، عشان كده الأنظمة غالبًا تمزج الاتنين: غير متماثل في البداية، بعدين متماثل للبيانات الثقيلة.",
+        "التشفير غير المتماثل يستخدم زوج مفاتيح. للسرية: يشفر بالمفتاح العام أي شخص، ويفك صاحبه بالمفتاح الخاص وحده. وللتوقيع الرقمي العكس: يوقع الخاص ويتحقق العام. وهو أبطأ من المتماثل، ولذلك تمزج الأنظمة بينهما غالبًا: غير متماثل في البداية، ثم متماثل للبيانات الكبيرة.",
       bodyEn:
         "Asymmetric encryption uses a key pair. For secrecy the public key encrypts and only the private key decrypts. A digital signature reverses that: the private key signs and the public key verifies. It is slower than symmetric crypto, so systems often mix both: asymmetric at the start, then symmetric for the heavy data.",
       exampleAr: "موقع المدرسة يعرض مفتاحًا عامًا؛ المتصفح يشفّر به، والخادم وحده يفك بالمفتاح الخاص.",
@@ -239,7 +257,7 @@ const EXPLAINS: Record<string, LessonExplain[]> = {
       termAr: "المصادقة",
       termEn: "Authentication",
       bodyAr:
-        "المصادقة تتأكد إن الطرف هو اللي بيدّعي إنه هو. السرية من غير مصادقة تسيب الباب لمحتال يعرف الرقم السري المسروق. كلمة المرور وحدها ضعيفة لو اتسرقت أو اتتخمنت. المصادقة تجاوب سؤال: مين أنت؟ مش بس: الرسالة متشفرة؟",
+        "المصادقة تتحقق من أن الطرف هو من يدعي أنه هو. والسرية بلا مصادقة تترك الباب مفتوحًا لمحتال يعرف كلمة السر المسروقة. وكلمة المرور وحدها ضعيفة إذا سُرقت أو خُمِّنت. والمصادقة تجيب عن سؤال: من أنت؟ لا عن سؤال: هل الرسالة مشفرة؟",
       bodyEn:
         "Authentication proves a party is who they claim to be. Secrecy without authentication leaves the door open to someone who stole a password. A password alone is weak if it is stolen or guessed. Authentication answers “who are you?”, not only “is the message encrypted?”.",
       exampleAr: "بوابة الدرجات تطلب كود الطالب قبل ما تفتح الكشف، حتى لو الرابط اتشفر.",
@@ -249,7 +267,7 @@ const EXPLAINS: Record<string, LessonExplain[]> = {
       termAr: "المصادقة متعددة العوامل",
       termEn: "MFA",
       bodyAr:
-        "المصادقة متعددة العوامل عاملان أو أكثر من فئات مختلفة: حاجة تعرفها (كلمة مرور)، حاجة تملكها (تليفون أو مفتاح)، أو حاجة أنت عليها (بصمة أو وجه). الثنائية عاملان فقط من فئتين، وهي حالة شائعة من المتعددة مش أوسع منها. لو عامل اتسرق، التاني يوقف المحتال. متبعتش صورة البصمة على جروب.",
+        "المصادقة متعددة العوامل عاملان أو أكثر من فئات مختلفة: شيء تعرفه (كلمة مرور)، وشيء تملكه (هاتف أو مفتاح)، وسمة فيك (بصمة أو وجه). والثنائية عاملان فقط من فئتين، وهي حالة شائعة من المتعددة لا أوسع منها. وإذا سُرق أحد العاملين أوقف الآخر المحتال. ولا ترسل صورة البصمة في مجموعة.",
       bodyEn:
         "Multi-factor authentication uses two or more factors from different categories: something you know (a password), something you have (a phone or a key), or something you are (a fingerprint or a face). Two-factor authentication is exactly two categories, a common case of MFA, not a wider one. If one factor is stolen, the second stops the thief. Do not send fingerprint photos to a group chat.",
       exampleAr: "دخول حساب المدرس: كلمة مرور + رمز من التطبيق على الموبايل.",
@@ -259,10 +277,10 @@ const EXPLAINS: Record<string, LessonExplain[]> = {
       termAr: "التجزئة",
       termEn: "Hash",
       bodyAr:
-        "التجزئة دالة اتجاه واحد: تدخل السر وتطلع بصمة ثابتة الطول. نقارن البصمة، ومش بنرجع الكلمة الأصلية من البصمة. لو اتنين نفس البصمة، غالبًا نفس المدخل. مفيدة لتخزين كلمات المرور والتحقق إن الملف ماتغيّرش.",
+        "التجزئة دالة في اتجاه واحد: يدخل السر فتخرج بصمة ثابتة الطول. نقارن البصمة ولا نسترجع الكلمة الأصلية منها. وإذا تطابقت بصمتان فالمدخل نفسه غالبًا. وهي مفيدة لتخزين كلمات المرور وللتحقق من أن الملف لم يتغير.",
       bodyEn:
         "A hash is a one-way function: you feed a secret and get a fixed-length fingerprint. We compare fingerprints; we do not recover the original word from the hash. The same input should give the same hash. It fits storing passwords and checking that a file was not changed.",
-      exampleAr: "الموقع يحفظ بصمة كلمة المرور، مش الكلمة نفسها، فلو قاعدة البيانات اتسرقت السر مش ظاهر.",
+      exampleAr: "الموقع يحفظ بصمة كلمة المرور لا الكلمة نفسها، فإذا سُرقت قاعدة البيانات لم يظهر السر.",
       exampleEn: "The site stores a password hash, not the password, so a leaked table does not show the secret.",
     },
   ],
@@ -271,7 +289,7 @@ const EXPLAINS: Record<string, LessonExplain[]> = {
       termAr: "جدار الحماية",
       termEn: "Firewall",
       bodyAr:
-        "جدار الحماية يفلتر حركة الشبكة حسب قواعد: مين يدخل، من أي منفذ، وإلى أي خدمة. طبقة واحدة مش كافية؛ المهاجم لو عدّاها لازم يقابل الطبقة اللي بعدها. حدّث القواعد وأقفل المنافذ اللي مفيش خدمة عليها.",
+        "جدار الحماية يفلتر حركة الشبكة وفق قواعد: من يدخل، ومن أي منفذ، وإلى أي خدمة. وطبقة واحدة لا تكفي؛ فإذا تجاوزها المهاجم لزم أن يقابل الطبقة التي بعدها. حدّث القواعد وأغلق المنافذ التي لا خدمة عليها.",
       bodyEn:
         "A firewall filters network traffic by rules: who may enter, on which port, to which service. One wall is not enough; if an attacker passes it, the next layer must stop them. Update the rules and close ports that host no service.",
       exampleAr: "معمل الحاسوب يمنع أجهزة الضيوف من الوصول لجهاز الكنترول يوم النتيجة.",
@@ -281,7 +299,7 @@ const EXPLAINS: Record<string, LessonExplain[]> = {
       termAr: "شبكة خاصة افتراضية",
       termEn: "VPN",
       bodyAr:
-        "الشبكة الخاصة الافتراضية نفق مشفّر عبر شبكة عامة زي شبكة البيت أو المقهى. الجهاز يبان كأنه داخل شبكة المدرسة وهو بره. مفيدة للشغل عن بُعد. مش سحر: لو الجهاز نفسه مصاب، النفق يوصل الإصابة لجوه.",
+        "الشبكة الخاصة الافتراضية نفق مشفر عبر شبكة عامة مثل شبكة المنزل أو المقهى. فيبدو الجهاز كأنه داخل شبكة المدرسة وهو خارجها. وهي مفيدة للعمل عن بُعد. لكنها ليست حلًا سحريًا: فإذا كان الجهاز نفسه مصابًا نقل النفق الإصابة إلى الداخل.",
       bodyEn:
         "A VPN is an encrypted tunnel across a public network such as home Wi-Fi or a café. The device looks as if it sits inside the school network while it is outside. It helps remote work. It is not magic: if the device itself is infected, the tunnel carries the infection inside.",
       exampleAr: "المعلم يصحح من البيت عبر نفق المدرسة بدل ما يفتح قاعدة الدرجات على شبكة مفتوحة.",
@@ -291,7 +309,7 @@ const EXPLAINS: Record<string, LessonExplain[]> = {
       termAr: "تقسيم الشبكة",
       termEn: "Segmentation",
       bodyAr:
-        "تقسيم الشبكة يعزل أجزاءها: شبكة الطلاب، شبكة الإدارة، شبكة الضيوف. لو جهاز في الفناء اتصاب، الاختراق مينتشرش للكنترول. التقسيم يقلل حركة المهاجم بعد أول نجاح.",
+        "تقسيم الشبكة يعزل أجزاءها: شبكة الطلاب، وشبكة الإدارة، وشبكة الضيوف. فإذا أصيب جهاز في الفناء لم ينتشر الاختراق إلى الكنترول. والتقسيم يحد من حركة المهاجم بعد أول نجاح.",
       bodyEn:
         "Segmentation isolates parts of the network: students, office, guests. If a device in the yard is infected, the breach does not walk into the control room. Segmentation shrinks how far an attacker can move after the first success.",
       exampleAr: "يوم توزيع النتائج: شبكة الضيوف مفصولة عن جهاز إدخال الدرجات.",
@@ -301,10 +319,10 @@ const EXPLAINS: Record<string, LessonExplain[]> = {
       termAr: "مبدأ أقل صلاحية",
       termEn: "Least privilege",
       bodyAr:
-        "أقل صلاحية تعني إن كل مستخدم ياخد بس اللي شغله محتاجه. سكرتير الظهور مش محتاج يمسح قاعدة الطلاب كلها. الحساب الإداري الواسع لو اتسحب، الضرر أكبر. راجع الصلاحيات كل ترم.",
+        "أقل صلاحية تعني أن يأخذ كل مستخدم ما يحتاجه عمله فقط. فموظف الاستقبال لا يحتاج صلاحية حذف قاعدة الطلاب كلها. والحساب الإداري الواسع إذا سُرق كان الضرر أكبر. راجع الصلاحيات كل فصل دراسي.",
       bodyEn:
         "Least privilege means each user gets only what the job needs. An attendance clerk does not need to wipe the whole student database. A wide admin account, if stolen, does more damage. Review rights every term.",
-      exampleAr: "حساب الطالب يفتح واجبه وبس، ومفيش زر حذف لدرجات الزملاء.",
+      exampleAr: "حساب الطالب يفتح واجبه فقط، ولا يوجد فيه زر لحذف درجات الزملاء.",
       exampleEn: "A student account opens their homework only, with no delete button for classmates' marks.",
     },
   ],
@@ -313,17 +331,17 @@ const EXPLAINS: Record<string, LessonExplain[]> = {
       termAr: "الحادث",
       termEn: "Incident",
       bodyAr:
-        "الحادث حدث يهدد سرية أو سلامة أو إتاحة المعلومات: تسريب كشف، فيروس، أو موقع المدرسة وقع. إخفاء الحادث يوسّع مين شاف البيان ومين اتصرف غلط. بلّغ فورًا حسب الخطة، ومتستناش «الأمور تهدأ».",
+        "الحادث حدث يهدد سرية المعلومات أو سلامتها أو إتاحتها: تسريب كشف، أو فيروس، أو توقف موقع المدرسة. وإخفاء الحادث يزيد عدد من اطلع على البيان ومن تصرف تصرفًا خاطئًا. بلّغ فورًا وفق الخطة، ولا تنتظر أن «تهدأ الأمور».",
       bodyEn:
         "An incident is an event that threatens confidentiality, integrity, or availability: a leaked sheet, malware, or the school site going down. Hiding it widens who saw the data and who acted badly. Report at once by the plan; do not wait until “things calm down”.",
-      exampleAr: "فلاشة مجهولة في المعمل شغّلت برنامج غريب — ده حادث، مش مزحة.",
+      exampleAr: "ذاكرة محمولة مجهولة في المعمل شغّلت برنامجًا غريبًا، وهذا حادث لا مزحة.",
       exampleEn: "An unknown flash drive in the lab launched a strange program — that is an incident, not a joke.",
     },
     {
       termAr: "إدارة المخاطر",
       termEn: "Risk management",
       bodyAr:
-        "إدارة المخاطر: حدّد الخطر، قدّر احتمال وقوعه وأثره، بعدين قرر تقبله أو تخفّفه أو تنقله (تأمين مثلًا). مش كل خطر يتقفل بنفس التكلفة. اكتب المخاطر قبل ما المشروع يكبر.",
+        "إدارة المخاطر: حدد الخطر، وقدّر احتمال وقوعه وأثره، ثم قرر قبوله أو تخفيفه أو نقله (بتأمين مثلًا). وليس كل خطر يُعالج بالتكلفة نفسها. سجّل المخاطر قبل أن يكبر المشروع.",
       bodyEn:
         "Risk management: name the risk, estimate how likely it is and how bad it would be, then accept it, reduce it, or transfer it (for example with insurance). Not every risk is closed at the same cost. Write the risks down before the project grows.",
       exampleAr: "خطر تسريب درجات أعلى من خطر بطء الطابعة؛ نركّز الفلوس على الحسابات والصلاحيات.",
@@ -333,17 +351,17 @@ const EXPLAINS: Record<string, LessonExplain[]> = {
       termAr: "خطة الاستجابة",
       termEn: "Response plan",
       bodyAr:
-        "خطة الاستجابة خطوات جاهزة ومُتدرَّب عليها: اكتشاف، احتواء، إزالة، تعافٍ، ثم مراجعة. الارتجال وقت الهلع يمسح الأدلة ويوسّع الضرر. بعد التعافي اسأل: إيه اللي فشل في التصميم؟ صلّح السبب مش العرض.",
+        "خطة الاستجابة خطوات جاهزة ومُتدرَّب عليها: اكتشاف، احتواء، إزالة، تعافٍ، ثم مراجعة. والارتجال وقت الذعر يمحو الأدلة ويوسع الضرر. وبعد التعافي اسأل: ما الذي فشل في التصميم؟ وعالج السبب لا العَرَض.",
       bodyEn:
         "A response plan is a written, rehearsed sequence: detect, contain, eradicate, recover, then review. Panic improvisation wipes evidence and widens damage. After recovery ask: what failed in the design? Fix the cause, not the symptom.",
-      exampleAr: "ورقة على الحائط في المعمل: مين يتصل، أي جهاز يتقفل، ومين يسجّل الوقت.",
+      exampleAr: "ورقة على حائط المعمل: من يتصل، وأي جهاز يُفصل، ومن يسجل الوقت.",
       exampleEn: "A sheet on the lab wall: who to call, which PC to isolate, and who logs the time.",
     },
     {
       termAr: "الاحتواء",
       termEn: "Containment",
       bodyAr:
-        "الاحتواء يعزل الجهاز أو الحساب المصاب عشان الضرر ما يكبرش: افصل الشبكة، أوقف الحساب، وقف الخدمة. متمسحش القرص قبل ما تسجّل الأدلة لو المراجعة هتحتاجها. الاحتواء أول فعل عملي بعد الاكتشاف.",
+        "الاحتواء يعزل الجهاز أو الحساب المصاب حتى لا يكبر الضرر: افصل الشبكة، وأوقف الحساب، وأوقف الخدمة. ولا تمسح القرص قبل تسجيل الأدلة إن كانت المراجعة ستحتاجها. والاحتواء أول فعل عملي بعد الاكتشاف.",
       bodyEn:
         "Containment isolates the infected device or account so the damage does not grow: unplug the network, freeze the account, stop the service. Do not wipe the disk before evidence is saved if a review will need it. Containment is the first practical act after detection.",
       exampleAr: "جهاز الطالب اتصاب: اقلع الكابل واتساب الكنترول، ومتوصلوش بفلاشة الزملاء.",
@@ -355,17 +373,17 @@ const EXPLAINS: Record<string, LessonExplain[]> = {
       termAr: "الواجهة الأمامية",
       termEn: "Frontend",
       bodyAr:
-        "الواجهة الأمامية ما يشوفه المستخدم في المتصفح: هيكل الصفحة وتنسيقها ولغة التفاعل. بتطلب من الخادم وتعرض الرد. متتحطش فيها أسرار: أي حد يفتح أدوات المطوّر يشوف الكود.",
+        "الواجهة الأمامية ما يراه المستخدم في المتصفح: هيكل الصفحة وتنسيقها ولغة التفاعل. وهي تطلب من الخادم وتعرض الرد. ولا تُوضع فيها أسرار: فمن يفتح أدوات المطور يرى الكود.",
       bodyEn:
         "The frontend is what the user sees in the browser: HTML structure, CSS look, and JavaScript behaviour. It asks the server and shows the reply. Do not put secrets in it: anyone can open developer tools and read the code.",
-      exampleAr: "صفحة تسجيل الحضور: صندوق الاسم وزر «حضر» دي واجهة أمامية.",
+      exampleAr: "صفحة تسجيل الحضور: صندوق الاسم وزر «حضر» واجهة أمامية.",
       exampleEn: "The attendance page — a name box and a Present button — is frontend.",
     },
     {
       termAr: "الخادم / الخلفية",
       termEn: "Backend",
       bodyAr:
-        "الخلفية المنطق والصلاحيات وقواعد البيانات على الخادم. هي اللي تقرر ينفع الطالب يشوف درجته ولا لأ، وهي اللي تحفظ. المتصفح يعرض ويطلب؛ الخادم يقرر ويخزّن.",
+        "الخلفية هي المنطق والصلاحيات وقواعد البيانات على الخادم. وهي التي تقرر هل يرى الطالب درجته أم لا، وهي التي تحفظ. فالمتصفح يعرض ويطلب، والخادم يقرر ويخزن.",
       bodyEn:
         "The backend is logic, permissions, and databases on the server. It decides whether a student may see a mark, and it stores the data. The browser displays and asks; the server decides and keeps.",
       exampleAr: "لما تدوس حفظ الواجب، الخادم يتأكد إن الكود بتاعك قبل ما يكتب في القاعدة.",
@@ -375,7 +393,7 @@ const EXPLAINS: Record<string, LessonExplain[]> = {
       termAr: "قاعدة البيانات",
       termEn: "Database",
       bodyAr:
-        "قاعدة البيانات تخزين دائم منظّم: جداول أو مجموعات تفضل بعد ما تقفل المتصفح. من غير قاعدة، كل طلب يبدأ من صفر. صمّم الحقول بدقة (درجة رقم، تاريخ تاريخ) عشان التحليل بعدين يبقى سليم.",
+        "قاعدة البيانات تخزين دائم منظّم: جداول أو مجموعات تفضل بعد ما تقفل المتصفح. وبغير قاعدة يبدأ كل طلب من الصفر. صمم الحقول بدقة (الدرجة رقم، والتاريخ تاريخ) ليكون التحليل لاحقًا سليمًا.",
       bodyEn:
         "A database is persistent structured storage: tables or collections that remain after the browser closes. Without it, every request starts from zero. Design fields carefully (a mark is a number, a date is a date) so later analysis stays honest.",
       exampleAr: "جدول الطلاب: الاسم، الكود، الشعبة، النقاط.",
@@ -397,7 +415,7 @@ const EXPLAINS: Record<string, LessonExplain[]> = {
       termAr: "HTTP",
       termEn: "HTTP",
       bodyAr:
-        "HTTP طلب واستجابة: العميل يقول الطريقة والعنوان، والخادم يرد بجسم ورمز حالة. الطرق الشائعة: GET للقراءة من غير تعديل، POST للإنشاء، PUT للاستبدال أو PATCH للتعديل الجزئي، وDELETE للحذف بعد إذن. من غير الاتفاق ده التطبيقان مش هيفهموا بعض.",
+        "HTTP طلب واستجابة: العميل يقول الطريقة والعنوان، والخادم يرد بجسم ورمز حالة. الطرق الشائعة: GET للقراءة من غير تعديل، POST للإنشاء، PUT للاستبدال أو PATCH للتعديل الجزئي، وDELETE للحذف بعد إذن. وبغير هذا الاتفاق لا يفهم التطبيقان أحدهما الآخر.",
       bodyEn:
         "HTTP is a request–response protocol: the client names a method and a URL, and the server replies with a body and a status code. Common methods: GET to read, POST to create, PUT to replace, PATCH to change part, DELETE to remove after permission. Without that contract two apps cannot understand each other.",
       exampleAr: "فتح صفحة الدرس GET. تسجيل واجب جديد POST.",
@@ -417,7 +435,7 @@ const EXPLAINS: Record<string, LessonExplain[]> = {
       termAr: "API",
       termEn: "API",
       bodyAr:
-        "الواجهة البرمجية اتفاق بين برنامجين: إيه العنوان، إيه الطريقة، وإيه شكل البيانات. التطبيق مش محتاج يعرف تفاصيل قاعدة البيانات، بس العقد. وثّق الردود والأخطاء عشان الفريق الثاني يبني عليها.",
+        "الواجهة البرمجية اتفاق بين برنامجين: ما العنوان، وما الطريقة، وما شكل البيانات. ولا يحتاج التطبيق معرفة تفاصيل قاعدة البيانات، بل العقد فقط. ووثّق الردود والأخطاء ليبني عليها الفريق الآخر.",
       bodyEn:
         "An API is a contract between two programs: which URL, which method, and which data shape. The app does not need the database internals, only the contract. Document replies and errors so the other team can build on them.",
       exampleAr: "تطبيق الحضور يطلب قائمة الحضور من الواجهة البرمجية ويرجع نص بيانات منظّم.",
@@ -427,10 +445,10 @@ const EXPLAINS: Record<string, LessonExplain[]> = {
       termAr: "REST / JSON",
       termEn: "REST / JSON",
       bodyAr:
-        "نمط شائع: كل مورد له عنوان، والطرق تتصرف عليه. نص البيانات المنظّم سهل للمتصفح والخادم. رمز الحالة جزء من العقد: 200 نجاح، 404 المورد مش على العنوان، 500 الخادم فشل. ملفات الجلسة تحفظ تسجيل الدخول بعد الطلب.",
+        "نمط شائع: كل مورد له عنوان، والطرق تتصرف عليه. نص البيانات المنظّم سهل للمتصفح والخادم. ورمز الحالة جزء من العقد: 200 نجاح، و404 المورد ليس على العنوان، و500 فشل الخادم. ملفات الجلسة تحفظ تسجيل الدخول بعد الطلب.",
       bodyEn:
         "REST is a common style: each resource has a URL, and methods act on it. JSON is structured text both browser and server can read. Status codes are part of the contract: 200 success, 404 not at that address, 500 the server failed. Cookies keep a login alive across requests.",
-      exampleAr: "جلب سجل الطالب رقم 12 يقرأ الطالب. 404 يعني مفيش طالب بالرقم ده.",
+      exampleAr: "جلب سجل الطالب رقم 12 يقرأ بيانات الطالب. و404 تعني أنه لا يوجد طالب بهذا الرقم.",
       exampleEn: "GET /students/12 reads one student. 404 means no student with that id.",
     },
   ],
@@ -439,10 +457,10 @@ const EXPLAINS: Record<string, LessonExplain[]> = {
       termAr: "HTML",
       termEn: "HTML",
       bodyAr:
-        "هيكل الصفحة يعطي معناها: عنوان، فقرة، زر، قائمة، جدول. ابدأ بالعنصر الصحيح، متخلّيش الصفحة كلها مربعات شكل من غير معنى. المعنى الصح يساعد قارئ الشاشة ومحركات البحث والطالب اللي بيتصفح بلوحة المفاتيح.",
+        "هيكل الصفحة يعطي معناها: عنوان، فقرة، زر، قائمة، جدول. ابدأ بالعنصر الصحيح، ولا تجعل الصفحة كلها مربعات شكلية بلا معنى. فالمعنى الصحيح يساعد قارئ الشاشة ومحركات البحث والطالب الذي يتصفح بلوحة المفاتيح.",
       bodyEn:
         "HTML gives the page its meaning: heading, paragraph, button, list, table. Start with the right element; do not build a page of empty boxes. Correct meaning helps a screen reader, search, and a student who browses with a keyboard.",
-      exampleAr: "عنوان الدرس عنصر عنوان، وزر الإرسال زر حقيقي، مش صورة زر مزيفة.",
+      exampleAr: "عنوان الدرس عنصر عنوان، وزر الإرسال زر حقيقي لا صورة زر.",
       exampleEn: "The lesson title is an h1, and submit is a button, not a fake picture of a button.",
     },
     {
@@ -452,24 +470,24 @@ const EXPLAINS: Record<string, LessonExplain[]> = {
         "تنسيق الصفحة مسؤول عن المظهر: لون، شبكة، مسافات، وتجاوب الشاشات. التصميم المتجاوب يخدم الموبايل قبل الشاشة العريضة أحيانًا. الاتساق أهم من المفاجأة: نفس مكان القائمة ونفس لون الزر الرئيسي.",
       bodyEn:
         "CSS controls look: colour, grid, spacing, and how the page fits screens. Responsive design often serves the phone before the wide monitor. Consistency beats surprise: same menu place, same primary button colour.",
-      exampleAr: "الزر الرئيسي كحلي في كل الصفحات، مش لون عشوائي كل مرة.",
+      exampleAr: "الزر الرئيسي بلون واحد في كل الصفحات، لا بلون عشوائي في كل مرة.",
       exampleEn: "The primary button stays navy on every page, not a random colour each time.",
     },
     {
       termAr: "JavaScript",
       termEn: "JavaScript",
       bodyAr:
-        "لغة التفاعل تضيف السلوك بعد التحميل: التحقق من النموذج، فتح قائمة، تحديث جزء من الصفحة من غير إعادة تحميل كاملة. متستخدمهاش بديلًا عن معنى الهيكل، ومتحطش فيها مفتاح سري.",
+        "لغة التفاعل تضيف السلوك بعد التحميل: التحقق من النموذج، فتح قائمة، تحديث جزء من الصفحة من غير إعادة تحميل كاملة. ولا تستخدمها بديلًا عن معنى الهيكل، ولا تضع فيها مفتاحًا سريًا.",
       bodyEn:
         "JavaScript adds behaviour after load: checking a form, opening a menu, updating part of the page without a full reload. Do not use it as a substitute for HTML meaning, and do not put a secret key in it.",
-      exampleAr: "صندوق البحث يفلتر أسماء الطلاب وأنت بتكتب.",
+      exampleAr: "صندوق البحث يفلتر أسماء الطلاب أثناء الكتابة.",
       exampleEn: "A search box filters student names as you type.",
     },
     {
       termAr: "إتاحة الوصول",
       termEn: "Accessibility",
       bodyAr:
-        "إتاحة الوصول تصميم يشتغل مع لوحة المفاتيح وقارئ الشاشة وتباين الألوان. مش تجميل في الآخر. اختبر الصفحة من غير فأرة. الدرجة في التقييم تحسب مين يقدر يقرأ ويكمل، مش التصفيق على اللون.",
+        "إتاحة الوصول تصميم يشتغل مع لوحة المفاتيح وقارئ الشاشة وتباين الألوان. وليست تجميلًا يضاف في النهاية. اختبر الصفحة بلا فأرة. فالتقييم يحسب من يستطيع أن يقرأ ويكمل، لا الإعجاب باللون.",
       bodyEn:
         "Accessibility is a design that works with a keyboard, a screen reader, and enough colour contrast. It is not last-minute decoration. Test the page without a mouse. The evaluation score counts who can read and finish, not applause for colour.",
       exampleAr: "طالب يستخدم لوحة المفاتيح يوصل لزر الحفظ بنفس سهولة الزميل بالفأرة.",
@@ -481,7 +499,7 @@ const EXPLAINS: Record<string, LessonExplain[]> = {
       termAr: "وسائط متعددة",
       termEn: "Multimedia",
       bodyAr:
-        "الوسائط المتعددة تجمع نص وصورة وصوت وفيديو ورسوم. كل وسيط يخدم رسالة: جدول للأرقام، فيديو للحركة، أيقونة للفعل السريع. الوسيط خادم للمعنى، مش زينة تزحم الصفحة.",
+        "الوسائط المتعددة تجمع نص وصورة وصوت وفيديو ورسوم. كل وسيط يخدم رسالة: جدول للأرقام، فيديو للحركة، أيقونة للفعل السريع. فالوسيط خادم للمعنى، لا زينة تزحم الصفحة.",
       bodyEn:
         "Multimedia combines text, image, audio, video, and animation. Each medium fits a message: a table for numbers, video for motion, an icon for a quick action. The medium serves the meaning; it is not decoration on a crowded page.",
       exampleAr: "شرح دورة الماء: رسم بسيط أوضح من فقرة طويلة من غير صورة.",
@@ -501,7 +519,7 @@ const EXPLAINS: Record<string, LessonExplain[]> = {
       termAr: "النص البديل",
       termEn: "Alt text",
       bodyAr:
-        "النص البديل وصف للصورة لمن لا يراها أو يستخدم قارئ شاشة. واجب مش تجميل. اكتب المعنى اللي الصورة بتوصّله، مش جملة «صورة1». لو الصورة للزينة بس، النص البديل يفضل فاضي عن قصد.",
+        "النص البديل وصف للصورة لمن لا يراها أو يستخدم قارئ شاشة. وهو واجب لا تجميل. اكتب المعنى الذي توصله الصورة، لا عبارة «صورة1». وإذا كانت الصورة للزينة فقط تُرك النص البديل فارغًا عن قصد.",
       bodyEn:
         "Alt text describes an image for someone who cannot see it or who uses a screen reader. It is a duty, not decoration. Write the meaning the picture carries, not “image1”. If the picture is purely decorative, leave alt empty on purpose.",
       exampleAr: "صورة قانون مور: «شريحة فيها ترانزستورات أكتر عبر السنين».",
@@ -511,7 +529,7 @@ const EXPLAINS: Record<string, LessonExplain[]> = {
       termAr: "الدقة مقابل الحجم",
       termEn: "Quality vs size",
       bodyAr:
-        "كل ما زادت الدقة زاد الحجم وبطؤ التحميل. وازن وضوح الوسيط وسرعة الشبكة اللي طالب البيت عليها. متفرضش فيديو 4K على واجب يتفتح من خط ضعيف.",
+        "كل ما زادت الدقة زاد الحجم وبطؤ التحميل. وازن بين وضوح الوسيط وسرعة الشبكة المتاحة للطالب في منزله. ولا تفرض فيديو بدقة 4K على واجب يُفتح من خط ضعيف.",
       bodyEn:
         "Higher resolution means a heavier file and a slower load. Balance how sharp the medium is against the home network a student has. Do not force a 4K video on homework that opens on a weak line.",
       exampleAr: "فيديو شرح دقيقتين بحجم مناسب أوضح من فيلم ثقيل محدش يقدر يحمّله.",
@@ -523,17 +541,17 @@ const EXPLAINS: Record<string, LessonExplain[]> = {
       termAr: "تجربة المستخدم",
       termEn: "UX",
       bodyAr:
-        "تجربة المستخدم سهولة ووضوح الرحلة لحد ما المستخدم يوصل هدفه. الموقع الناجح يتفهم في ثانية، مش يتُعجب في صورة بس. صمّم للمهمة: الطالب يسجّل حضوره بأقل خطوات.",
+        "تجربة المستخدم سهولة ووضوح الرحلة لحد ما المستخدم يوصل هدفه. والموقع الناجح يُفهم في ثانية، لا يُعجب بصورته فقط. صمم للمهمة: أن يسجل الطالب حضوره بأقل خطوات.",
       bodyEn:
         "UX is how easy and clear the journey is until the user reaches a goal. A successful site is understood in a second, not only admired in a screenshot. Design for the task: a student marks attendance in the fewest steps.",
-      exampleAr: "تسجيل الحضور: كود + زر واحد، مش خمس صفحات أسئلة.",
+      exampleAr: "تسجيل الحضور: رمز وزر واحد، لا خمس صفحات أسئلة.",
       exampleEn: "Attendance: a code plus one button, not five pages of questions.",
     },
     {
       termAr: "واجهة المستخدم",
       termEn: "UI",
       bodyAr:
-        "واجهة المستخدم العناصر المرئية اللي المستخدم يلمسها: أزرار، قوائم، حقول. الواجهة جزء من تجربة المستخدم. واجهة جميلة من غير رحلة واضحة تفضل فاشلة. الاتساق: نفس مكان القائمة ونفس لون الزر الرئيسي.",
+        "واجهة المستخدم هي العناصر المرئية التي يتعامل معها المستخدم: أزرار وقوائم وحقول. الواجهة جزء من تجربة المستخدم. واجهة جميلة من غير رحلة واضحة تفضل فاشلة. الاتساق: نفس مكان القائمة ونفس لون الزر الرئيسي.",
       bodyEn:
         "UI is the visible controls the user touches: buttons, menus, fields. UI is part of UX. A pretty interface with a confusing journey still fails. Keep consistency: same menu place, same primary colour.",
       exampleAr: "زر الحفظ دايمًا أسفل النموذج بنفس اللون.",
@@ -556,7 +574,7 @@ const EXPLAINS: Record<string, LessonExplain[]> = {
         "عدد النقرات كم خطوة لحد ما المهمة تخلّص. كل خطوة زيادة فرصة إن الطالب يسيب الصفحة. اختبر مع زميل صامت وشوف يتوه فين.",
       bodyEn:
         "Click count is how many steps the user needs to finish the task. Extra steps raise the chance a student leaves. Watch a silent classmate and see where they get lost.",
-      exampleAr: "تحميل الملزمة: درس → زر تحميل. مش قائمة مدفونة في الإعدادات.",
+      exampleAr: "تحميل الكتاب: درس ثم زر تحميل، لا قائمة مدفونة في الإعدادات.",
       exampleEn: "Download the booklet: lesson → Download. Not a menu buried in settings.",
     },
   ],
@@ -565,20 +583,20 @@ const EXPLAINS: Record<string, LessonExplain[]> = {
       termAr: "قابلية الاستخدام",
       termEn: "Usability",
       bodyAr:
-        "قابلية الاستخدام: هل المستخدم يخلّص المهمة بسرعة وبأخطاء قليلة؟ قيّم بوضوح الهدف، زمن المهمة، عدد الأخطاء، ورضا المستخدم. ذوق المصمم وحده مش مقياس.",
+        "قابلية الاستخدام: هل المستخدم يخلّص المهمة بسرعة وبأخطاء قليلة؟ قيّم بوضوح الهدف، زمن المهمة، عدد الأخطاء، ورضا المستخدم. وذوق المصمم وحده ليس مقياسًا.",
       bodyEn:
         "Usability asks whether the user finishes the task quickly with few errors. Score goal clarity, task time, errors, and satisfaction. The designer's taste alone is not a measure.",
-      exampleAr: "عشرة طلاب جرّبوا بوابة الغياب؛ لو أربعة تاهوا يبقى التصميم مش جاهز.",
+      exampleAr: "عشرة طلاب جربوا بوابة الغياب؛ فإذا تاه أربعة منهم فالتصميم غير جاهز.",
       exampleEn: "Ten students try the attendance portal; if four get lost, the design is not ready.",
     },
     {
       termAr: "اختبار أ/ب",
       termEn: "A/B test",
       bodyAr:
-        "اختبار أ/ب يقارن نسختين ويقيس أنهي أفضل على مقياس مكتوب وعدد كافٍ. عينة صديقين في الفسحة ذوق متنكّر، مش اختبار. متعلنش فوز لون من غير ما تقيس إتمام المهمة.",
+        "اختبار أ/ب يقارن نسختين ويقيس أنهي أفضل على مقياس مكتوب وعدد كافٍ. وسؤال صديقين في الفسحة ذوق لا اختبار. ولا تعلن فوز لون قبل أن تقيس إتمام المهمة.",
       bodyEn:
         "An A/B test compares two versions and measures which works better on a written metric and a large enough count. A two-friend sample at break is taste in disguise, not a test. Do not declare a colour the winner until task completion is measured.",
-      exampleAr: "نسخة زر «دخول» أعلى الصفحة مقابل أسفلها، ونعد مين كمّل تسجيل الدخول.",
+      exampleAr: "نسخة زر «دخول» أعلى الصفحة مقابل أسفلها، ونعد من أكمل تسجيل الدخول.",
       exampleEn: "A Log in button at the top versus the bottom, and we count who finishes sign-in.",
     },
     {
@@ -588,14 +606,14 @@ const EXPLAINS: Record<string, LessonExplain[]> = {
         "زمن المهمة كام دقيقة أو ثانية لحد ما الهدف يخلّص. زمن أطول من غير سبب يعني احتكاك في الواجهة. قيس قبل وبعد أي تغيير.",
       bodyEn:
         "Task time is how long the user takes to finish the goal. Extra time with no reason means friction. Measure before and after every change.",
-      exampleAr: "تسجيل كود الفصل كان بياخد دقيقة؛ بعد تبسيط الحقل بقى عشر ثوانٍ.",
+      exampleAr: "تسجيل رمز الفصل كان يستغرق دقيقة؛ وبعد تبسيط الحقل أصبح عشر ثوانٍ.",
       exampleEn: "Entering the class code took a minute; after simplifying the field it took ten seconds.",
     },
     {
       termAr: "رضا المستخدم",
       termEn: "Satisfaction",
       bodyAr:
-        "الرضا: هل التجربة واضحة ومريحة، مش بس المهمة اتنفذت. اسأل المستخدم جملة قصيرة بعد التجربة. إتاحة الوصول جزء من التقييم، حتى لو المدير مدح الخط.",
+        "الرضا: هل كانت التجربة واضحة ومريحة، لا أن المهمة نُفذت فحسب. اسأل المستخدم سؤالًا قصيرًا بعد التجربة. وإتاحة الوصول جزء من التقييم، حتى لو أُعجب المدير بالخط.",
       bodyEn:
         "Satisfaction is whether the experience feels clear and comfortable, not only whether the task finished. Ask a short question after the trial. Accessibility stays part of the score even if the head teacher praised the font.",
       exampleAr: "استمارة قصيرة: «قدرت تلاقي درجتك بسهولة؟» نعم / لا / فين المشكلة.",
@@ -607,7 +625,7 @@ const EXPLAINS: Record<string, LessonExplain[]> = {
       termAr: "التكرار",
       termEn: "Iteration",
       bodyAr:
-        "التكرار حلقة: صمّم → اختبر → تعلّم → حسّن → أعد. الموقع مش بيتنشر مرة ويتنسي. غيّر حاجة واحدة في كل دورة عشان تعرف السبب. التحسين دليل، مش قائمة أمنيات.",
+        "التكرار حلقة: صمّم → اختبر → تعلّم → حسّن → أعد. فالموقع لا يُنشر مرة ثم يُنسى. غيّر شيئًا واحدًا في كل دورة لتعرف السبب. والتحسين دليل لا قائمة أمنيات.",
       bodyEn:
         "Iteration is a loop: design → test → learn → improve → repeat. A site is not published once and forgotten. Change one thing per cycle so you know the cause. Improvement is evidence, not a wish list.",
       exampleAr: "نقلنا زر الواجب بعد ما شفنا الطلاب بيدوروا عليه تحت؛ الدورة الجاية نقيس تاني.",
@@ -627,7 +645,7 @@ const EXPLAINS: Record<string, LessonExplain[]> = {
       termAr: "معدل الخروج",
       termEn: "Drop-off",
       bodyAr:
-        "معدل الخروج: فين الزائر يسيب الصفحة قبل ما يخلّص المهمة. راقب الخطوة اللي الناس بتختفي عندها. هناك مكان التحسين.",
+        "معدل الخروج: أين يترك الزائر الصفحة قبل أن يتم المهمة. راقب الخطوة التي يختفي عندها الناس، فهناك موضع التحسين.",
       bodyEn:
         "Drop-off is where a visitor leaves the page before finishing the task. Watch the step where people vanish. That is where you improve.",
       exampleAr: "نصف الطلاب يقفلوا صفحة الدفع قبل التأكيد — راجع وضوح السعر والزر.",
@@ -637,10 +655,10 @@ const EXPLAINS: Record<string, LessonExplain[]> = {
       termAr: "دليل القرار",
       termEn: "Decision record",
       bodyAr:
-        "دليل القرار سبب مكتوب للتغيير مبني على ملاحظة، مش ذوق بس: ليه نقلنا الزر؟ أنهي رقم؟ مين اتفرج؟ السجل يمنع إن الفريق يرجع لنفس الجدال كل أسبوع.",
+        "دليل القرار سبب مكتوب للتغيير مبني على ملاحظة لا على ذوق: لماذا نقلنا الزر؟ وأي رقم يدل على ذلك؟ ومن جرّب؟ والسجل يمنع عودة الفريق إلى الجدال نفسه كل أسبوع.",
       bodyEn:
         "A decision record is a written reason for a change, based on evidence not taste alone: why did we move the button? which number? who watched? The record stops the team repeating the same argument every week.",
-      exampleAr: "ملاحظة 12 سبتمبر: 8 من 10 داسوا «رجوع» بدل «إرسال» — نقلنا الإرسال لليمين.",
+      exampleAr: "ملاحظة 12 سبتمبر: ضغط 8 من 10 على «رجوع» بدل «إرسال»، فنقلنا زر الإرسال إلى اليمين.",
       exampleEn: "Note 12 Sep: 8 of 10 hit Back instead of Send — we moved Send to the right.",
     },
   ],
@@ -756,7 +774,7 @@ const EXPLAINS: Record<string, LessonExplain[]> = {
         "الترخيص شروط إعادة الاستخدام: هل يجوز النسخ، التعديل، والنشر التجاري. «موجود على النت» مش إذن. لو الرخصة تمنع إعادة النشر، استخدم الرقم في البحث واذكر المصدر من غير ما تعيد توزيع الملف.",
       bodyEn:
         "A licence states the reuse rules: whether you may copy, change, and publish commercially. “It is on the internet” is not permission. If the licence blocks republication, use the number in your research and cite the source without redistributing the file.",
-      exampleAr: "جدول بترخيص «للعرض فقط» مينفعش يتحط كامل في ملزمة للبيع.",
+      exampleAr: "جدول بترخيص «للعرض فقط» مينفعش يتحط كامل في كتاب للبيع.",
       exampleEn: "A “display only” table must not be copied in full into a booklet for sale.",
     },
     {
@@ -998,7 +1016,7 @@ const EXPLAINS: Record<string, LessonExplain[]> = {
         "نموذج اللغة الكبير شبكة اتدرّبت على نص هائل عشان تتوقع الوحدة التالية من النص. مش «تعرف» كالإنسان؛ بتحسب أرجح تكملة. اللغة السلسة مش دليل صدق.",
       bodyEn:
         "A large language model is a network trained on huge text to predict the next token. It does not “know” as a person does; it scores the next likely piece. Fluent language is not proof of truth.",
-      exampleAr: "يسأل الطالب عن قانون مور فيرد بفقرة فصيحة؛ لسه لازم تتراجع من الملزمة أو الكتاب.",
+      exampleAr: "يسأل الطالب عن قانون مور فيرد بفقرة فصيحة؛ لسه لازم تتراجع من الكتاب.",
       exampleEn: "A student asks about Moore's Law and gets a fluent paragraph; it still needs a check against the booklet or the book.",
     },
     {

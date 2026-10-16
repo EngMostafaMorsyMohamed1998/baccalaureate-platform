@@ -16,13 +16,13 @@ export const LESSON_NOTES: LessonNote[] = [
     id: "1-1",
     chapterId: "1",
     termsAr: [
-      { term: "الحاسوب الإلكتروني", meaning: "ظهر في الأربعينيات–الخمسينيات بأنابيب مفرغة، مثل إينياك، للحساب العسكري والعلمي." },
+      { term: "الحاسوب الإلكتروني", meaning: "حواسيب ضخمة من الأربعينيات إلى الستينيات. بدايتها مثل إينياك بالأنابيب المفرغة، للحساب العسكري والعلمي." },
       { term: "الحاسوب الشخصي", meaning: "انتشر في الثمانينيات للعمل والتعليم اليومي بدل الطرق التقليدية." },
       { term: "الإنترنت والويب", meaning: "أُتيح تجاريًا في التسعينيات؛ وصول عالمي للمعلومات والبريد الإلكتروني." },
       { term: "الهواتف الذكية", meaning: "ظهرت في العقد الأول من الألفية ووسّعت الإنترنت عبر المحمول." },
       { term: "قانون مور", meaning: "عدد الترانزستورات على الشريحة يتضاعف تقريبًا كل سنتين." },
       { term: "الحوسبة السحابية", meaning: "تقديم تقنية المعلومات كخدمة عبر الإنترنت." },
-      { term: "الحوسبة الطرفية", meaning: "معالجة البيانات على الجهاز نفسه فورًا بدل إرسالها للسحابة." },
+      { term: "الحوسبة الطرفية", meaning: "معالجة البيانات قرب مصدرها، كالجهاز نفسه، بدل إرسالها كلها إلى السحابة." },
       { term: "الواقع المعزز / الافتراضي", meaning: "المعزز يضيف طبقة رقمية على الواقع، والافتراضي يستبدله بعالم محاكى." },
       {
         term: "التحولات الاجتماعية الناتجة عن تكنولوجيا المعلومات",
@@ -32,13 +32,13 @@ export const LESSON_NOTES: LessonNote[] = [
       { term: "البت الكمومي", meaning: "وحدة معلومات كمومية تمثل 0 و 1 معًا بالتراكب، بخلاف البت التقليدي." },
     ],
     termsEn: [
-      { term: "Electronic computer", meaning: "Appeared in the 1940s–1950s with vacuum tubes, such as ENIAC, for military and scientific calculation." },
+      { term: "Electronic computer", meaning: "Huge machines from the 1940s to the 1960s. Early ones such as ENIAC used vacuum tubes for military and scientific calculation." },
       { term: "Personal computer", meaning: "Spread in the 1980s for daily work and learning instead of older methods." },
       { term: "Internet and the web", meaning: "Opened to business in the 1990s; worldwide access to information and email." },
       { term: "Smartphones", meaning: "Appeared in the 2000s and spread the Internet from a pocket." },
       { term: "Moore's Law", meaning: "Transistors on a chip roughly double about every two years." },
       { term: "Cloud computing", meaning: "IT delivered as a service over the Internet." },
-      { term: "Edge computing", meaning: "Process data on the device instantly instead of sending it to the cloud." },
+      { term: "Edge computing", meaning: "Process data near its source, such as on the device, instead of sending it all to the cloud." },
       { term: "AR / VR", meaning: "AR overlays digital info on the real world; VR replaces it with a virtual space." },
       {
         term: "Social changes resulting from information technology",
@@ -49,13 +49,13 @@ export const LESSON_NOTES: LessonNote[] = [
     ],
     bodyAr: [
       "مرت تقنية المعلومات بمراحل: حواسيب الغرف (الأربعينيات–الستينيات) ثم الحاسوب الشخصي ثم الإنترنت ثم الهواتف ثم السحابة والذكاء الاصطناعي كخدمة.",
-      "قانون مور ملاحظة من 1965: عدد الترانزستورات على الشريحة يتضاعف تقريبًا كل سنتين. اليوم اقترب التصغير من حد فيزيائي فتظهر المعالجة المتوازية والحوسبة الكمومية.",
+      "قانون مور ملاحظة من 1965: عدد الترانزستورات على الشريحة يتضاعف تقريبًا كل سنتين. اليوم اقترب التصغير من حد فيزيائي، فيتحسن أداء الحواسيب العادية أيضًا بتعدد الأنوية والمعالجة المتوازية. الحوسبة الكمومية نهج مختلف لمسائل محددة.",
       "الحوسبة السحابية تقدّم التخزين والبرامج كخدمة عبر الإنترنت. الحوسبة الطرفية تعالج البيانات على الجهاز عندما يكون التأخير خطرًا، كما في القيادة الذاتية.",
       "الواقع المعزز يضيف طبقة رقمية على العالم الحقيقي. الواقع الافتراضي يستبدله بعالم محاكى. كل مرحلة من التقنية غيّرت المجتمع: البريد، العمل عن بُعد، التعلّم عبر الإنترنت، والدفع بلا نقد.",
     ],
     bodyEn: [
       "IT moved in stages: room-sized computers, personal computers, the Internet, smartphones, then cloud and AI as a service.",
-      "Moore's Law is a 1965 observation: transistors on a chip roughly double every two years. Shrinking is near a physical limit, so parallel cores and quantum computing appear.",
+      "Moore's Law is a 1965 observation: transistors on a chip roughly double every two years. Shrinking is near a physical limit, so ordinary computers also improve through parallel cores. Quantum computing is a different approach for specific problems.",
       "Cloud computing delivers storage and software as a service over the Internet. Edge computing processes data on the device when delay is dangerous, as in self-driving cars.",
       "AR overlays the real world; VR replaces it with a simulated space. Each IT stage changed society: email, remote work, online learning, and cashless payment.",
     ],
@@ -97,13 +97,13 @@ export const LESSON_NOTES: LessonNote[] = [
     chapterId: "1",
     termsAr: [
       { term: "الذكاء الضيق", meaning: "نظام يتقن مهمة واحدة فقط، وهذا شكل معظم أنظمة اليوم." },
-      { term: "التحيز", meaning: "أخطاء متكررة لأن بيانات التدريب غير عادلة أو ناقصة." },
+      { term: "التحيز", meaning: "نتائج غير عادلة لفئة، وقد تأتي من البيانات أو التصميم أو طريقة الاستخدام." },
       { term: "نظام توصية", meaning: "يقترح محتوى أو منتجًا من أنماط سابقة." },
       { term: "صيانة تنبؤية", meaning: "توقع عطل الآلة قبل حدوثه من بيانات الحساسات." },
     ],
     termsEn: [
       { term: "Narrow AI", meaning: "Expert at one task only — the form of most systems today." },
-      { term: "Bias", meaning: "Repeated errors because training data is unfair or incomplete." },
+      { term: "Bias", meaning: "Unfair results for a group. They can come from the data, the design, or how the system is used." },
       { term: "Recommender", meaning: "Suggests content or a product from past patterns." },
       { term: "Predictive maintenance", meaning: "Forecast a machine fault from sensor data before it happens." },
     ],
@@ -664,14 +664,14 @@ export const LESSON_NOTES: LessonNote[] = [
     termsAr: [
       { term: "نموذج لغة كبير", meaning: "شبكة تدربت على نص هائل لتوقع الكلمة التالية." },
       { term: "توجيه الأوامر", meaning: "صياغة السؤال تؤثر على جودة الرد." },
-      { term: "هلوسة", meaning: "جملة فصيحة بلا سند." },
-      { term: "رمز / توكن", meaning: "وحدة النص التي يتوقعها النموذج كلمةً بعد كلمة." },
+      { term: "هلوسة", meaning: "جملة فصيحة تذكر واقعة لم تحدث." },
+      { term: "رمز / توكن", meaning: "وحدة النص التي يتوقعها النموذج، وقد تكون كلمة أو جزءًا منها." },
     ],
     termsEn: [
       { term: "LLM", meaning: "A network trained on huge text to predict the next token." },
       { term: "Prompting", meaning: "How you ask changes the quality of the reply." },
-      { term: "Hallucination", meaning: "Fluent text with no grounding." },
-      { term: "Token", meaning: "The text unit the model predicts, one after another." },
+      { term: "Hallucination", meaning: "Fluent text that states a fact that did not happen." },
+      { term: "Token", meaning: "The text unit the model predicts. It may be a word or part of a word." },
     ],
     bodyAr: [
       "النموذج لا «يعرف» كالإنسان؛ يحسب أرجح تكملة.",

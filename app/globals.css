@@ -560,8 +560,13 @@ html.en h3 {
   aside,
   header.no-print,
   .no-print,
-  .fixed.no-print {
+  .fixed,
+  a[href="/dashboard/chat-to-teacher"] {
     display: none !important;
+    visibility: hidden !important;
+    position: static !important;
+    height: 0 !important;
+    overflow: hidden !important;
   }
 
   html.dark {
@@ -621,10 +626,18 @@ html.en h3 {
 
   .dashboard-shell,
   .dashboard-main,
-  .dashboard-page {
+  .dashboard-page,
+  .booklet-paper,
+  .booklet-pane,
+  .lesson-sheet {
     display: block !important;
+    float: none !important;
+    position: static !important;
     width: 100% !important;
     max-width: none !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
     padding: 0 !important;
     margin: 0 !important;
     background: white !important;
@@ -670,7 +683,6 @@ html.en h3 {
   }
 
   .booklet-cover {
-    break-after: page;
     margin: 0 !important;
     border-radius: 0 !important;
     box-shadow: none !important;
@@ -700,8 +712,34 @@ html.en h3 {
     transition: none !important;
   }
 
-  .print-break {
+  .print-break,
+  .lesson-sheet {
     break-before: page;
+    page-break-before: always;
+  }
+
+  .lesson-sheet {
+    break-inside: auto;
+    page-break-inside: auto;
+    margin-top: 0 !important;
+  }
+
+  .textbook-sheet {
+    margin-bottom: 0 !important;
+  }
+
+  .textbook-sheet > div {
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+  }
+
+  .booklet-section {
+    margin-top: 0.7rem !important;
+  }
+
+  .booklet-q {
+    break-inside: avoid;
+    page-break-inside: avoid;
   }
 
   .print-keep,
@@ -722,24 +760,56 @@ html.en h3 {
     margin-bottom: 0.55rem;
   }
 
-  .booklet-section {
-    margin-top: 1.1rem;
-  }
-
   .textbook-sheet {
     break-inside: auto;
+    overflow: visible !important;
     box-shadow: none !important;
     border-radius: 0 !important;
   }
 
   .textbook-ask,
-  .textbook-figure,
   .textbook-takeaway,
   .textbook-foot,
   .textbook-table tr,
+  .booklet-q,
+  .print-keep {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .textbook-figure,
   .concept-card,
   .booklet-section {
-    break-inside: avoid;
+    break-inside: auto;
+    page-break-inside: auto;
+  }
+
+  .booklet-paper .grid {
+    display: block !important;
+  }
+
+  .booklet-paper .text-lg,
+  .booklet-paper .leading-8,
+  .booklet-paper .leading-9,
+  .booklet-paper .leading-10 {
+    font-size: 13px !important;
+    line-height: 1.45 !important;
+  }
+
+  .concept-card,
+  .textbook-ask,
+  .textbook-takeaway,
+  .textbook-figure {
+    margin-top: 0.55rem !important;
+    padding: 8px 10px !important;
+  }
+
+  .write-lines {
+    margin-top: 0.35rem !important;
+  }
+
+  .write-lines > div {
+    height: 1.15rem !important;
   }
 
   .textbook-figure,
@@ -754,8 +824,8 @@ html.en h3 {
   }
 
   .booklet-paper {
-    font-size: 14px;
-    line-height: 1.7;
+    font-size: 13px;
+    line-height: 1.45;
   }
 
   .booklet-pane.hidden {
@@ -1011,6 +1081,51 @@ html.en h3 {
 
 .arena-panel-hero .arena-cta {
   margin-top: 0.6rem;
+}
+
+.arena-levels {
+  display: flex;
+  width: 100%;
+  gap: 0.35rem;
+  overflow-x: auto;
+  padding-bottom: 0.15rem;
+}
+
+.arena-level-dot {
+  display: inline-flex;
+  width: 2.4rem;
+  height: 2.4rem;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.14);
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: white;
+}
+
+.arena-level-dot.is-on {
+  background: #d4a017;
+  color: #071c45;
+}
+
+.arena-level-dot.is-locked {
+  opacity: 0.35;
+}
+
+.arena-level-name,
+.arena-level-badge {
+  font-weight: 800;
+}
+
+.arena-level-badge {
+  border-radius: 999px;
+  background: #d4a017;
+  color: #071c45;
+  padding: 0.15rem 0.55rem;
+  text-shadow: none;
 }
 
 .arena-grid {
@@ -1445,6 +1560,7 @@ html.en h3 {
   top: 0.75rem;
   z-index: 5;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   gap: 0.6rem;
   font-size: 0.82rem;

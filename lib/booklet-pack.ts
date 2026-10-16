@@ -337,6 +337,7 @@ export function faizUnitId(value: string): "f1" | "f2" | "f3" | "f4" | null {
 export function isBookletScope(value: string | null | undefined): value is BookletScope {
   if (!value) return false;
   if (value === "faiz" || value === "faiz-hw") return true;
+  if (value === "part-1" || value === "part-2") return true;
   if (isAssessScope(value)) return true;
   if (homeworkChapterId(value) || faizUnitId(value)) return true;
   return Boolean(getLesson(value));

@@ -1,0 +1,15 @@
+{
+  "hosting": {
+    "public": ".",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/.git/**",
+      "**/.github/**",
+      "**/node_modules/**",
+      "AGENTS.md",
+      "README.md",
+      "أداة-المعلم-توليد-الأكواد.html"
+    ]
+  }
+}

@@ -11,7 +11,15 @@ function markId(id: string) {
   return `\u2066${id}\u2069`;
 }
 
-export function BookletCatalog({ locale }: { locale: Locale }) {
+export function BookletCatalog({
+  locale,
+  initialLessonId,
+  openSolutions = false,
+}: {
+  locale: Locale;
+  initialLessonId?: string;
+  openSolutions?: boolean;
+}) {
   const assessIds = new Set(assessLessonIds());
   return (
     <div className="booklet-paper mx-auto w-full max-w-5xl" lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
@@ -24,6 +32,7 @@ export function BookletCatalog({ locale }: { locale: Locale }) {
         printLabel={t(locale, "printNow")}
         downloadLabel={t(locale, "downloadBooklet")}
         downloadingLabel={t(locale, "downloadingBooklet")}
+        initialLessonId={openSolutions && initialLessonId ? `assess-${initialLessonId}` : initialLessonId}
         groups={[
           ...CHAPTERS.map((chapter) => ({
             id: chapter.id,
